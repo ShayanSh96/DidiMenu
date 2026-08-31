@@ -104,15 +104,14 @@
             if (!active) return;
 
             const centerActiveCategory = () => {
-                const target = active.offsetLeft - (strip.clientWidth / 2) + (active.offsetWidth / 2);
-                strip.scrollTo({
-                    left: target,
-                    behavior: 'instant'
+                active.scrollIntoView({
+                    behavior: 'auto',
+                    block: 'nearest',
+                    inline: 'center'
                 });
             };
 
-            requestAnimationFrame(centerActiveCategory);
-            window.addEventListener('load', centerActiveCategory, { once: true });
+            requestAnimationFrame(() => requestAnimationFrame(centerActiveCategory));
         })();
     </script>
 </body>
