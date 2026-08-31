@@ -25,7 +25,7 @@
                     <h2>دسته‌بندی‌ها</h2>
                 </div>
 
-                <nav class="category-strip">
+                <nav class="category-strip" id="categoryStrip">
                     {% for category in categories %}
                         <a class="category-card{% if selected_category and category.pk == selected_category.pk %} category-card--active{% endif %}"
                            href="?category={{ category.slug }}#products">
@@ -94,5 +94,26 @@
             <p>CAFE & RESTAURANT</p>
         </footer>
     </main>
+
+    <script>
+        (function () {
+            const strip = document.getElementById('categoryStrip');
+            if (!strip) return;
+
+            const active = strip.querySelector('.category-card--active');
+            if (!active) return;
+
+            const centerActiveCategory = () => {
+                const target = active.offsetLeft - (strip.clientWidth / 2) + (active.offsetWidth / 2);
+                strip.scrollTo({
+                    left: target,
+                    behavior: 'instant'
+                });
+            };
+
+            requestAnimationFrame(centerActiveCategory);
+            window.addEventListener('load', centerActiveCategory, { once: true });
+        })();
+    </script>
 </body>
 </html>
