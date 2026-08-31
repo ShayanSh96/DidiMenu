@@ -3,65 +3,96 @@
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>DIDI Menu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#10203f">
+    <title>DIDI | Menu</title>
     <link rel="stylesheet" href="{% static 'menu/style.css' %}">
 </head>
 <body>
     <main class="page-shell">
-        <header class="site-header">
-            <h1>DIDI</h1>
-            <p>MENU</p>
+        <header class="hero">
+            <div class="hero__mark">DIDI</div>
+            <div class="hero__line"></div>
+            <p class="hero__subtitle">CAFE & RESTAURANT</p>
+            <h1>منوی دیدی</h1>
+            <p class="hero__intro">دسته‌بندی مورد نظرتان را انتخاب کنید</p>
         </header>
 
         {% if categories %}
-            <nav class="category-strip" aria-label="دسته‌بندی‌های منو">
-                {% for category in categories %}
-                    <a class="category-card{% if selected_category and category.pk == selected_category.pk %} category-card--active{% endif %}"
-                       href="?category={{ category.slug }}">
-                        <div class="category-card__image-wrap">
-                            {% if category.image %}
-                                <img class="category-card__image" src="{{ category.image.url }}" alt="{{ category.name }}">
-                            {% else %}
-                                <div class="category-card__placeholder">DIDI</div>
-                            {% endif %}
-                        </div>
-                        <span class="category-card__title">{{ category.name }}</span>
-                    </a>
-                {% endfor %}
-            </nav>
+            <section class="categories" aria-label="دسته‌بندی‌های منو">
+                <div class="section-heading">
+                    <span>MENU</span>
+                    <h2>دسته‌بندی‌ها</h2>
+                </div>
+
+                <nav class="category-strip">
+                    {% for category in categories %}
+                        <a class="category-card{% if selected_category and category.pk == selected_category.pk %} category-card--active{% endif %}"
+                           href="?category={{ category.slug }}#products">
+                            <div class="category-card__image-wrap">
+                                {% if category.image %}
+                                    <img class="category-card__image" src="{{ category.image.url }}" alt="{{ category.name }}" loading="lazy">
+                                {% else %}
+                                    <div class="category-card__placeholder"><span>DIDI</span></div>
+                                {% endif %}
+                                <div class="category-card__shade"></div>
+                                <span class="category-card__title">{{ category.name }}</span>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </nav>
+            </section>
 
             {% if selected_category %}
-                <section class="category-section">
-                    <h2>{{ selected_category.name }}</h2>
+                <section class="products" id="products">
+                    <div class="section-heading section-heading--products">
+                        <span>SELECTED CATEGORY</span>
+                        <h2>{{ selected_category.name }}</h2>
+                    </div>
+
                     <div class="menu-grid">
                         {% for item in items %}
                             <a class="menu-card{% if not item.is_available %} menu-card--unavailable{% endif %}" href="{{ item.get_absolute_url }}">
-                                {% if item.image %}
-                                    <img src="{{ item.image.url }}" alt="{{ item.name }}">
-                                {% endif %}
+                                <div class="menu-card__media">
+                                    {% if item.image %}
+                                        <img src="{{ item.image.url }}" alt="{{ item.name }}" loading="lazy">
+                                    {% else %}
+                                        <div class="menu-card__placeholder">DIDI</div>
+                                    {% endif %}
+                                    {% if item.is_featured %}<span class="menu-card__badge">پیشنهاد دیدی</span>{% endif %}
+                                    {% if not item.is_available %}<span class="menu-card__soldout">ناموجود</span>{% endif %}
+                                </div>
                                 <div class="menu-card__body">
-                                    <h3>{{ item.name }}</h3>
-                                    {% if item.english_name %}<p class="english-name">{{ item.english_name }}</p>{% endif %}
-                                    {% if item.description %}<p>{{ item.description|truncatechars:100 }}</p>{% endif %}
-                                    <div class="menu-card__footer">
+                                    <div class="menu-card__heading">
+                                        <div>
+                                            <h3>{{ item.name }}</h3>
+                                            {% if item.english_name %}<p class="english-name">{{ item.english_name }}</p>{% endif %}
+                                        </div>
                                         {% if item.is_available %}
-                                            <strong>{{ item.price }} T</strong>
-                                        {% else %}
-                                            <strong class="unavailable">ناموجود</strong>
+                                            <div class="price"><strong>{{ item.price }}</strong><small>تومان</small></div>
                                         {% endif %}
                                     </div>
+                                    {% if item.description %}<p class="description">{{ item.description|truncatechars:115 }}</p>{% endif %}
+                                    <span class="menu-card__more">مشاهده جزئیات <b>←</b></span>
                                 </div>
                             </a>
                         {% empty %}
-                            <p class="empty-state">هنوز محصولی در این دسته ثبت نشده است.</p>
+                            <div class="empty-state">
+                                <strong>DIDI</strong>
+                                <p>محصولات این دسته به‌زودی اضافه می‌شوند.</p>
+                            </div>
                         {% endfor %}
                     </div>
                 </section>
             {% endif %}
         {% else %}
-            <p class="empty-state">هنوز دسته‌بندی فعالی ثبت نشده است.</p>
+            <div class="empty-state"><strong>DIDI</strong><p>منو در حال آماده‌سازی است.</p></div>
         {% endif %}
+
+        <footer class="site-footer">
+            <span>DIDI</span>
+            <p>CAFE & RESTAURANT</p>
+        </footer>
     </main>
 </body>
 </html>
