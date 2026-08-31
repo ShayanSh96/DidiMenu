@@ -1,0 +1,31 @@
+{% load static %}
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ item.name }} | DIDI</title>
+    <link rel="stylesheet" href="{% static 'menu/style.css' %}">
+</head>
+<body>
+    <main class="page-shell detail-page">
+        <a class="back-link" href="{% url 'menu:home' %}">بازگشت به منو</a>
+
+        <article class="detail-card">
+            {% if item.image %}
+                <img class="detail-image" src="{{ item.image.url }}" alt="{{ item.name }}">
+            {% endif %}
+
+            <h1>{{ item.name }}</h1>
+            {% if item.english_name %}<p class="english-name">{{ item.english_name }}</p>{% endif %}
+            {% if item.description %}<p class="detail-description">{{ item.description }}</p>{% endif %}
+
+            {% if item.is_available %}
+                <div class="detail-price">{{ item.price }} T</div>
+            {% else %}
+                <div class="detail-price unavailable">ناموجود</div>
+            {% endif %}
+        </article>
+    </main>
+</body>
+</html>
