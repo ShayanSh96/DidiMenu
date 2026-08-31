@@ -1,4 +1,4 @@
-{% load static humanize %}
+{% load static menu_extras %}
 <!doctype html>
 <html lang="fa" dir="rtl">
 <head>
@@ -21,7 +21,7 @@
             {% if item.description %}<p class="detail-description">{{ item.description }}</p>{% endif %}
 
             {% if item.is_available %}
-                <div class="detail-price">{{ item.price|intcomma }} تومان</div>
+                <div class="detail-price">{{ item.price|price_format }} تومان</div>
             {% else %}
                 <div class="detail-price unavailable">ناموجود</div>
             {% endif %}
