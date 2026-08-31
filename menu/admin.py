@@ -10,6 +10,7 @@ class CategoryAdmin(admin.ModelAdmin):
     search_fields = ("name",)
     prepopulated_fields = {"slug": ("name",)}
     ordering = ("sort_order", "name")
+    fields = ("name", "slug", "image", "sort_order", "is_active")
 
 
 @admin.register(MenuItem)
