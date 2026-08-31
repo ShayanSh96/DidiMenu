@@ -1,4 +1,4 @@
-{% load static %}
+{% load static humanize %}
 <!doctype html>
 <html lang="fa" dir="rtl">
 <head>
@@ -69,7 +69,7 @@
                                             {% if item.english_name %}<p class="english-name">{{ item.english_name }}</p>{% endif %}
                                         </div>
                                         {% if item.is_available %}
-                                            <div class="price"><strong>{{ item.price }}</strong><small>تومان</small></div>
+                                            <div class="price"><strong>{{ item.price|intcomma }}</strong><small>تومان</small></div>
                                         {% endif %}
                                     </div>
                                     {% if item.description %}<p class="description">{{ item.description|truncatechars:115 }}</p>{% endif %}
