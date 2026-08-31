@@ -14,36 +14,52 @@
             <p>MENU</p>
         </header>
 
-        {% for category in categories %}
-            <section class="category-section">
-                <h2>{{ category.name }}</h2>
-                <div class="menu-grid">
-                    {% for item in category.items.all %}
-                        <a class="menu-card" href="{{ item.get_absolute_url }}">
-                            {% if item.image %}
-                                <img src="{{ item.image.url }}" alt="{{ item.name }}">
-                            {% endif %}
-                            <div class="menu-card__body">
-                                <h3>{{ item.name }}</h3>
-                                {% if item.english_name %}<p class="english-name">{{ item.english_name }}</p>{% endif %}
-                                {% if item.description %}<p>{{ item.description|truncatechars:100 }}</p>{% endif %}
-                                <div class="menu-card__footer">
-                                    {% if item.is_available %}
-                                        <strong>{{ item.price }} T</strong>
-                                    {% else %}
-                                        <strong class="unavailable">ناموجود</strong>
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </a>
-                    {% empty %}
-                        <p>هنوز محصولی در این دسته ثبت نشده است.</p>
-                    {% endfor %}
+        {% if categories %}
+            <form class="category-picker" method="get">
+                <label for="category-select">دسته‌بندی</label>
+                <div class="select-wrap">
+                    <select id="category-select" name="category" onchange="this.form.submit()">
+                        {% for category in categories %}
+                            <option value="{{ category.slug }}" {% if selected_category and category.pk == selected_category.pk %}selected{% endif %}>
+                                {{ category.name }}
+                            </option>
+                        {% endfor %}
+                    </select>
                 </div>
-            </section>
-        {% empty %}
-            <p>هنوز دسته‌بندی فعالی ثبت نشده است.</p>
-        {% endfor %}
+                <noscript><button type="submit">نمایش</button></noscript>
+            </form>
+
+            {% if selected_category %}
+                <section class="category-section">
+                    <h2>{{ selected_category.name }}</h2>
+                    <div class="menu-grid">
+                        {% for item in items %}
+                            <a class="menu-card{% if not item.is_available %} menu-card--unavailable{% endif %}" href="{{ item.get_absolute_url }}">
+                                {% if item.image %}
+                                    <img src="{{ item.image.url }}" alt="{{ item.name }}">
+                                {% endif %}
+                                <div class="menu-card__body">
+                                    <h3>{{ item.name }}</h3>
+                                    {% if item.english_name %}<p class="english-name">{{ item.english_name }}</p>{% endif %}
+                                    {% if item.description %}<p>{{ item.description|truncatechars:100 }}</p>{% endif %}
+                                    <div class="menu-card__footer">
+                                        {% if item.is_available %}
+                                            <strong>{{ item.price }} T</strong>
+                                        {% else %}
+                                            <strong class="unavailable">ناموجود</strong>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </a>
+                        {% empty %}
+                            <p class="empty-state">هنوز محصولی در این دسته ثبت نشده است.</p>
+                        {% endfor %}
+                    </div>
+                </section>
+            {% endif %}
+        {% else %}
+            <p class="empty-state">هنوز دسته‌بندی فعالی ثبت نشده است.</p>
+        {% endif %}
     </main>
 </body>
 </html>
