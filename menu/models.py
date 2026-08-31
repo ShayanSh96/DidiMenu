@@ -5,6 +5,12 @@ from django.urls import reverse
 class Category(models.Model):
     name = models.CharField(max_length=120, unique=True, verbose_name="نام دسته‌بندی")
     slug = models.SlugField(max_length=140, unique=True, verbose_name="اسلاگ")
+    image = models.ImageField(
+        upload_to="menu/categories/",
+        blank=True,
+        null=True,
+        verbose_name="تصویر دسته‌بندی",
+    )
     sort_order = models.PositiveIntegerField(default=0, verbose_name="ترتیب نمایش")
     is_active = models.BooleanField(default=True, verbose_name="فعال")
 
