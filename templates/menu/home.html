@@ -15,19 +15,21 @@
         </header>
 
         {% if categories %}
-            <form class="category-picker" method="get">
-                <label for="category-select">دسته‌بندی</label>
-                <div class="select-wrap">
-                    <select id="category-select" name="category" onchange="this.form.submit()">
-                        {% for category in categories %}
-                            <option value="{{ category.slug }}" {% if selected_category and category.pk == selected_category.pk %}selected{% endif %}>
-                                {{ category.name }}
-                            </option>
-                        {% endfor %}
-                    </select>
-                </div>
-                <noscript><button type="submit">نمایش</button></noscript>
-            </form>
+            <nav class="category-strip" aria-label="دسته‌بندی‌های منو">
+                {% for category in categories %}
+                    <a class="category-card{% if selected_category and category.pk == selected_category.pk %} category-card--active{% endif %}"
+                       href="?category={{ category.slug }}">
+                        <div class="category-card__image-wrap">
+                            {% if category.image %}
+                                <img class="category-card__image" src="{{ category.image.url }}" alt="{{ category.name }}">
+                            {% else %}
+                                <div class="category-card__placeholder">DIDI</div>
+                            {% endif %}
+                        </div>
+                        <span class="category-card__title">{{ category.name }}</span>
+                    </a>
+                {% endfor %}
+            </nav>
 
             {% if selected_category %}
                 <section class="category-section">
