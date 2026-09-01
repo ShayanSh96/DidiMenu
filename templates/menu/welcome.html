@@ -1,0 +1,36 @@
+{% load static %}
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#10203f">
+    <title>DIDI | Welcome</title>
+    <link rel="stylesheet" href="{% static 'menu/style.css' %}">
+</head>
+<body class="welcome-body">
+    <main class="welcome-screen">
+        <div class="welcome-screen__orb welcome-screen__orb--one"></div>
+        <div class="welcome-screen__orb welcome-screen__orb--two"></div>
+
+        <section class="welcome-card">
+            <p class="welcome-card__eyebrow">CAFE & RESTAURANT</p>
+            <div class="welcome-card__logo">DIDI</div>
+            <div class="welcome-card__divider"></div>
+
+            <h1>به دیدی خوش آمدید</h1>
+            <p class="welcome-card__text">
+                از حضور شما خوشحالیم.<br>
+                برای مشاهده دسته‌بندی‌ها و انتخاب سفارش، وارد منو شوید.
+            </p>
+
+            <a class="welcome-card__button" href="{% url 'menu:home' %}">
+                <span>مشاهده منو</span>
+                <b>←</b>
+            </a>
+
+            <p class="welcome-card__hint">DIDI SPACE</p>
+        </section>
+    </main>
+</body>
+</html>
