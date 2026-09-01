@@ -11,7 +11,7 @@ MISSING_BURGER_ADDONS = [
         "name": "سوسیس",
         "english_name": "Sausage",
         "slug": "addon-sausage",
-        "price": 100_000,
+        "price": 180_000,
     },
     {
         "name": "پیاز کاراملی",
@@ -35,7 +35,7 @@ def verified_price_groups():
             continue
         for i, (aliases, price) in enumerate(fixes):
             if normalize(aliases[0]) == normalize("Sausage"):
-                fixes[i] = (aliases, 100_000)
+                fixes[i] = (aliases, 180_000)
     return groups
 
 
@@ -120,7 +120,6 @@ class Command(BaseCommand):
                             if virtual:
                                 break
                         if virtual:
-                            # The CREATE line already reports the exact verified target.
                             continue
                     missing.append(f"{category_slug}: {aliases[0]}")
                     continue
