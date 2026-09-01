@@ -93,6 +93,110 @@ a { color: inherit; text-decoration: none; }
 .detail-description { line-height: 2; }
 .detail-price { font-size: 22px; font-weight: 700; margin-top: 20px; }
 
+/* Welcome landing page */
+.welcome-body {
+    min-height: 100vh;
+    background: #0b1730;
+}
+.welcome-screen {
+    position: relative;
+    min-height: 100svh;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    padding: 28px 18px;
+    color: #fff;
+    background:
+        radial-gradient(circle at 16% 18%, rgba(255,255,255,.07), transparent 26%),
+        radial-gradient(circle at 86% 82%, rgba(194,174,135,.11), transparent 28%),
+        linear-gradient(145deg, #0d1a35 0%, #10203f 58%, #0b1730 100%);
+}
+.welcome-screen::before {
+    content: '';
+    position: absolute;
+    inset: 22px;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 32px;
+    pointer-events: none;
+}
+.welcome-screen__orb {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.07);
+}
+.welcome-screen__orb--one { width: 360px; height: 360px; top: -155px; right: -130px; }
+.welcome-screen__orb--two { width: 260px; height: 260px; bottom: -120px; left: -90px; }
+.welcome-card {
+    position: relative;
+    z-index: 2;
+    width: min(100%, 520px);
+    padding: 54px 34px 44px;
+    text-align: center;
+}
+.welcome-card__eyebrow {
+    margin: 0 0 20px;
+    font-size: 9px;
+    letter-spacing: 4px;
+    direction: ltr;
+    opacity: .56;
+}
+.welcome-card__logo {
+    font-size: clamp(56px, 12vw, 82px);
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: 14px;
+    text-indent: 14px;
+}
+.welcome-card__divider {
+    width: 46px;
+    height: 1px;
+    margin: 28px auto 30px;
+    background: rgba(220,205,173,.72);
+}
+.welcome-card h1 {
+    margin: 0;
+    font-size: clamp(26px, 6vw, 36px);
+    font-weight: 600;
+}
+.welcome-card__text {
+    max-width: 390px;
+    margin: 18px auto 34px;
+    color: rgba(255,255,255,.70);
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 2.05;
+}
+.welcome-card__button {
+    width: min(100%, 280px);
+    min-height: 56px;
+    margin: 0 auto;
+    padding: 0 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    border: 1px solid rgba(225,211,181,.54);
+    border-radius: 999px;
+    background: rgba(255,255,255,.045);
+    box-shadow: 0 18px 48px rgba(0,0,0,.16);
+    font-size: 14px;
+    font-weight: 600;
+    transition: transform .22s ease, background .22s ease, border-color .22s ease;
+}
+.welcome-card__button:hover {
+    transform: translateY(-2px);
+    background: rgba(255,255,255,.09);
+    border-color: rgba(225,211,181,.9);
+}
+.welcome-card__button b { font-size: 18px; font-weight: 300; }
+.welcome-card__hint {
+    margin: 38px 0 0;
+    font-size: 8px;
+    letter-spacing: 4px;
+    direction: ltr;
+    opacity: .30;
+}
+
 @media (max-width: 620px) {
     .page-shell { width: 100%; box-shadow: none; }
     .hero { min-height: 300px; padding: 54px 20px 44px; }
@@ -105,4 +209,9 @@ a { color: inherit; text-decoration: none; }
     .menu-grid { grid-template-columns: 1fr; gap: 18px; }
     .menu-card { border-radius: 19px; }
     .menu-card__media { aspect-ratio: 1.45 / 1; }
+    .welcome-screen { padding: 18px 10px; }
+    .welcome-screen::before { inset: 12px; border-radius: 24px; }
+    .welcome-card { padding: 42px 20px 36px; }
+    .welcome-card__logo { letter-spacing: 10px; text-indent: 10px; }
+    .welcome-card__text { font-size: 12px; }
 }
