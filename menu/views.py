@@ -3,6 +3,10 @@ from django.shortcuts import get_object_or_404, render
 from .models import Category, MenuItem
 
 
+def welcome(request):
+    return render(request, "menu/welcome.html")
+
+
 def menu_home(request):
     categories = Category.objects.filter(is_active=True)
 
