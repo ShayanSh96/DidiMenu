@@ -1,0 +1,149 @@
+{% load static %}
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#10203f">
+    <title>DIDI | Categories</title>
+    <link rel="stylesheet" href="{% static 'menu/style.css' %}">
+    <style>
+        body { background: #f5f1e9; }
+        .category-page {
+            min-height: 100vh;
+            background: #f5f1e9;
+        }
+        .category-page__hero {
+            padding: 48px 20px 34px;
+            text-align: center;
+            color: #fff;
+            background: #10203f;
+        }
+        .category-page__logo {
+            direction: ltr;
+            font-size: 44px;
+            font-weight: 800;
+            letter-spacing: 9px;
+            line-height: 1;
+        }
+        .category-page__eyebrow {
+            margin: 12px 0 0;
+            direction: ltr;
+            font-size: 9px;
+            letter-spacing: 4px;
+            opacity: .55;
+        }
+        .category-page__title {
+            margin: 30px 0 6px;
+            font-size: 25px;
+        }
+        .category-page__subtitle {
+            margin: 0;
+            font-size: 13px;
+            opacity: .68;
+        }
+        .category-page__content {
+            width: min(100%, 920px);
+            margin: 0 auto;
+            padding: 28px 16px 42px;
+        }
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+        .top-category {
+            position: relative;
+            min-height: 150px;
+            overflow: hidden;
+            border-radius: 18px;
+            background: #1b2d50;
+            box-shadow: 0 10px 28px rgba(16,32,63,.10);
+        }
+        .top-category img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            inset: 0;
+            object-fit: cover;
+        }
+        .top-category::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(8,17,34,.08) 18%, rgba(8,17,34,.84) 100%);
+        }
+        .top-category__placeholder {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            color: rgba(255,255,255,.18);
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 5px;
+        }
+        .top-category__title {
+            position: absolute;
+            z-index: 2;
+            right: 12px;
+            left: 12px;
+            bottom: 14px;
+            text-align: center;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 700;
+            text-shadow: 0 2px 8px rgba(0,0,0,.35);
+        }
+        .category-page__back {
+            display: block;
+            width: fit-content;
+            margin: 30px auto 0;
+            color: #7f735e;
+            font-size: 12px;
+        }
+        @media (max-width: 700px) {
+            .category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .top-category { min-height: 132px; border-radius: 16px; }
+        }
+        @media (max-width: 380px) {
+            .category-page__content { padding-left: 12px; padding-right: 12px; }
+            .category-grid { gap: 10px; }
+            .top-category { min-height: 120px; }
+            .top-category__title { font-size: 13px; }
+        }
+    </style>
+</head>
+<body>
+    <main class="category-page">
+        <header class="category-page__hero">
+            <div class="category-page__logo">DIDI</div>
+            <p class="category-page__eyebrow">CAFE & RESTAURANT</p>
+            <h1 class="category-page__title">منوی دیدی</h1>
+            <p class="category-page__subtitle">دسته‌بندی مورد نظرتان را انتخاب کنید</p>
+        </header>
+
+        <section class="category-page__content">
+            <div class="category-grid">
+                {% for category in categories %}
+                    <a class="top-category" href="?category={{ category.slug }}#products">
+                        {% if category.image %}
+                            <img src="{{ category.image.url }}" alt="{{ category.name }}" loading="lazy">
+                        {% else %}
+                            <div class="top-category__placeholder">DIDI</div>
+                        {% endif %}
+                        <span class="top-category__title">{{ category.name }}</span>
+                    </a>
+                {% empty %}
+                    <div class="empty-state">
+                        <strong>DIDI</strong>
+                        <p>دسته‌بندی‌ها در حال آماده‌سازی هستند.</p>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <a class="category-page__back" href="{% url 'menu:welcome' %}">بازگشت به صفحه اصلی</a>
+        </section>
+    </main>
+</body>
+</html>
