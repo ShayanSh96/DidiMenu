@@ -3,149 +3,132 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="theme-color" content="#10203f">
+    <meta name="theme-color" content="#111827">
     <title>DIDI | Welcome</title>
     <style>
         * { box-sizing: border-box; }
-        html, body {
-            margin: 0;
-            width: 100%;
-            min-height: 100%;
-            overflow-x: hidden;
-        }
+        html, body { margin: 0; width: 100%; min-height: 100%; }
         body {
             min-height: 100vh;
             min-height: 100svh;
-            font-family: Arial, Tahoma, sans-serif;
-            background: #10203f;
-            color: #fff;
-            direction: ltr;
+            font-family: Tahoma, Arial, sans-serif;
+            background: #141414;
+            color: #10203f;
         }
-        .welcome {
+        .landing {
             position: relative;
-            width: 100%;
             min-height: 100vh;
             min-height: 100svh;
-            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 24px;
+            overflow: hidden;
+            padding: 24px 16px;
             background:
-                radial-gradient(circle at 15% 12%, rgba(255,255,255,.10), transparent 26%),
-                radial-gradient(circle at 86% 84%, rgba(191,164,119,.18), transparent 31%),
-                linear-gradient(145deg, #0b1830 0%, #10203f 52%, #172b4e 100%);
+                linear-gradient(rgba(8, 12, 18, .64), rgba(8, 12, 18, .64)),
+                url('/media/menu/categories/2A9F69E9-5592-4F7D-9E42-E8BC9E0A1324-1152x1536.jpeg') center center / cover no-repeat,
+                #141414;
         }
-        .welcome::before,
-        .welcome::after {
+        .landing::before {
             content: '';
             position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(255,255,255,.03), rgba(0,0,0,.18));
             pointer-events: none;
-            border: 1px solid rgba(255,255,255,.10);
-            border-radius: 50%;
         }
-        .welcome::before { width: 360px; height: 360px; top: -190px; right: -120px; }
-        .welcome::after { width: 520px; height: 520px; bottom: -350px; left: -220px; }
-        .card {
+        .panel {
             position: relative;
             z-index: 1;
-            direction: rtl;
-            width: calc(100vw - 48px);
-            max-width: 520px;
-            margin: 0 auto;
-            text-align: center;
-            padding: 50px 34px 42px;
-            border: 1px solid rgba(255,255,255,.13);
-            border-radius: 30px;
-            background: rgba(255,255,255,.045);
-            box-shadow: 0 30px 80px rgba(0,0,0,.22);
-            backdrop-filter: blur(8px);
+            width: min(100%, 410px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
         }
-        .eyebrow {
-            margin: 0 0 18px;
-            direction: ltr;
-            color: rgba(255,255,255,.58);
-            font-size: 10px;
-            letter-spacing: 4px;
-            white-space: nowrap;
-        }
-        .logo {
-            direction: ltr;
-            font-size: clamp(48px, 16vw, 78px);
-            font-weight: 800;
-            line-height: 1;
-            letter-spacing: 8px;
-            text-align: center;
-        }
-        .line { width: 48px; height: 1px; margin: 27px auto 31px; background: #bca477; }
-        h1 { margin: 0; font-size: clamp(24px, 7vw, 34px); font-weight: 700; }
-        .copy {
-            margin: 15px auto 0;
-            max-width: 340px;
-            color: rgba(255,255,255,.68);
-            font-size: 14px;
-            line-height: 2;
-        }
-        .button {
-            width: 100%;
-            max-width: 285px;
-            min-height: 58px;
-            margin: 35px auto 0;
-            padding: 0 24px;
+        .logo-badge {
+            width: min(78vw, 330px);
+            aspect-ratio: 2.5 / 1;
+            margin-bottom: 72px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 13px;
-            border-radius: 999px;
-            background: #f5f1e9;
+            position: relative;
+            background: #fff;
+            color: #10203f;
+            clip-path: polygon(50% 0, 100% 31%, 93% 38%, 100% 45%, 93% 52%, 100% 59%, 50% 100%, 0 59%, 7% 52%, 0 45%, 7% 38%, 0 31%);
+            box-shadow: 0 18px 45px rgba(0,0,0,.28);
+        }
+        .logo-badge::before,
+        .logo-badge::after {
+            content: '';
+            position: absolute;
+            left: 13%;
+            right: 13%;
+            height: 1px;
+            background: rgba(16,32,63,.22);
+        }
+        .logo-badge::before { top: 31%; }
+        .logo-badge::after { bottom: 31%; }
+        .logo-inner { text-align: center; direction: ltr; line-height: 1; }
+        .logo-year { margin-bottom: 5px; font-size: 8px; }
+        .logo-name { font-size: clamp(35px, 9vw, 53px); font-weight: 400; letter-spacing: 2px; }
+        .logo-space { margin-top: 5px; font-size: 12px; letter-spacing: 2px; }
+        .nav-links {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+        .nav-link {
+            width: min(64vw, 230px);
+            min-height: 66px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 18px;
+            border: 2px solid #10203f;
+            background: rgba(255,255,255,.94);
             color: #10203f;
             text-decoration: none;
-            font-size: 15px;
-            font-weight: 700;
-            box-shadow: 0 14px 35px rgba(0,0,0,.20);
-            transition: transform .2s ease, background .2s ease;
+            font-size: clamp(20px, 5vw, 25px);
+            font-weight: 500;
+            box-shadow: 0 8px 22px rgba(0,0,0,.13);
+            transition: transform .18s ease, background .18s ease;
         }
-        .button:hover { transform: translateY(-2px); background: #fff; }
-        .button b { font-size: 20px; font-weight: 400; }
-        .foot {
-            margin: 34px 0 0;
-            direction: ltr;
-            color: rgba(255,255,255,.30);
-            font-size: 9px;
-            letter-spacing: 4px;
+        .nav-link:hover { transform: translateY(-2px); background: #fff; }
+        .nav-link--muted { background: rgba(233,233,233,.78); }
+        @media (max-width: 600px) {
+            .landing { padding-top: 28px; padding-bottom: 28px; }
+            .panel { width: 100%; }
+            .logo-badge { width: min(82vw, 300px); margin-bottom: 52px; }
+            .nav-links { gap: 22px; }
+            .nav-link { width: min(68vw, 245px); min-height: 60px; font-size: 20px; }
         }
-        @media (max-width: 560px) {
-            .welcome { padding: 18px; }
-            .card {
-                width: calc(100vw - 36px);
-                max-width: none;
-                padding: 40px 20px 34px;
-                border-radius: 24px;
-            }
-            .eyebrow { font-size: 9px; letter-spacing: 3px; }
-            .logo { font-size: 54px; letter-spacing: 7px; }
-            h1 { font-size: 27px; }
-            .copy { font-size: 13px; line-height: 1.9; }
-            .button { max-width: 260px; min-height: 56px; }
-        }
-        @media (max-width: 360px) {
-            .card { padding-left: 16px; padding-right: 16px; }
-            .logo { font-size: 48px; letter-spacing: 6px; }
-            h1 { font-size: 24px; }
-            .copy { font-size: 12px; }
+        @media (max-height: 720px) {
+            .logo-badge { width: min(62vw, 255px); margin-bottom: 30px; }
+            .nav-links { gap: 14px; }
+            .nav-link { min-height: 52px; font-size: 18px; }
         }
     </style>
 </head>
 <body>
-    <main class="welcome">
-        <section class="card">
-            <p class="eyebrow">CAFE & RESTAURANT</p>
-            <div class="logo">DIDI</div>
-            <div class="line"></div>
-            <h1>به دیدی خوش آمدید</h1>
-            <p class="copy">لحظه‌ای خوش در کنار طعم‌های دیدی.<br>برای مشاهده دسته‌بندی‌ها وارد منو شوید.</p>
-            <a class="button" href="{% url 'menu:home' %}"><span>مشاهده منو</span><b>←</b></a>
-            <p class="foot">DIDI SPACE</p>
+    <main class="landing">
+        <section class="panel" aria-label="ورود به بخش‌های دیدی">
+            <div class="logo-badge" aria-label="DIDI SPACE">
+                <div class="logo-inner">
+                    <div class="logo-year">2025</div>
+                    <div class="logo-name">DIDI</div>
+                    <div class="logo-space">SPACE</div>
+                </div>
+            </div>
+
+            <nav class="nav-links">
+                <a class="nav-link" href="{% url 'menu:home' %}">منو</a>
+                <a class="nav-link" href="#" aria-disabled="true">داستان‌ما</a>
+                <a class="nav-link nav-link--muted" href="#" aria-disabled="true">رویدادها</a>
+                <a class="nav-link" href="#" aria-disabled="true">خانواده‌ی دی‌دی</a>
+            </nav>
         </section>
     </main>
 </body>
