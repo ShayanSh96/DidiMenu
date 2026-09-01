@@ -9,21 +9,21 @@ def welcome(request):
 
 def menu_home(request):
     categories = Category.objects.filter(is_active=True)
-
     selected_slug = request.GET.get("category")
-    selected_category = None
 
-    if selected_slug:
-        selected_category = categories.filter(slug=selected_slug).first()
+    # First visit to the menu shows all categories.
+    if not selected_slug:
+        return render(request, "menu/categories.html", {"categories": categories})
 
+    selected_category = categories.filter(slug=selected_slug).first()
+
+    # Invalid/removed category: return to the category selector.
     if selected_category is None:
-        selected_category = categories.first()
+        return render(request, "menu/categories.html", {"categories": categories})
 
-    items = MenuItem.objects.none()
-    if selected_category:
-        items = MenuItem.objects.filter(category=selected_category).order_by(
-            "sort_order", "name"
-        )
+    items = MenuItem.objects.filter(category=selected_category).order_by(
+        "sort_order", "name"
+    )
 
     context = {
         "categories": categories,
