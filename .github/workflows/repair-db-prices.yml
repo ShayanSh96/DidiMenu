@@ -1,4 +1,4 @@
-name: Repair DIDI database prices
+name: Export DIDI database menu
 
 on:
   push:
@@ -10,76 +10,36 @@ permissions:
   contents: write
 
 jobs:
-  repair-db:
+  export-db:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      - name: Verify and repair four missing prices
+      - name: Export menu rows
         run: |
           python - <<'PY'
-          import sqlite3
-          from pathlib import Path
-
-          db = Path('db.sqlite3')
-          con = sqlite3.connect(db)
+          import csv, sqlite3
+          con = sqlite3.connect('db.sqlite3')
           cur = con.cursor()
-
-          fixes = {
-              'کروسان شکلاتی': 285_000,
-              'امریکن استایل': 315_000,
-              'پرو شیک': 480_000,
-              'ناتی شیک': 460_000,
-          }
-
-          before = cur.execute(
-              'SELECT COUNT(*) FROM menu_menuitem WHERE price = 0 OR price IS NULL'
-          ).fetchone()[0]
-          print('ZERO before:', before)
-
-          for name, price in fixes.items():
-              rows = cur.execute(
-                  'SELECT id, name, english_name, price FROM menu_menuitem WHERE name = ?',
-                  (name,),
-              ).fetchall()
-              if len(rows) != 1:
-                  raise SystemExit(f'Expected exactly one row for {name!r}, found {len(rows)}: {rows}')
-              row = rows[0]
-              print(f'UPDATE id={row[0]} | {row[1]} | {row[2]} | {row[3]} -> {price}')
-              cur.execute('UPDATE menu_menuitem SET price = ? WHERE id = ?', (price, row[0]))
-
-          con.commit()
-
-          total = cur.execute('SELECT COUNT(*) FROM menu_menuitem').fetchone()[0]
-          after = cur.execute(
-              'SELECT COUNT(*) FROM menu_menuitem WHERE price = 0 OR price IS NULL'
-          ).fetchone()[0]
-
-          print('TOTAL:', total)
-          print('ZERO after:', after)
-
-          if total != 187:
-              raise SystemExit(f'Unexpected menu item count: {total}, expected 187')
-          if after != 0:
-              remaining = cur.execute(
-                  'SELECT id, name, english_name, price FROM menu_menuitem WHERE price = 0 OR price IS NULL'
-              ).fetchall()
-              raise SystemExit(f'Zero prices remain: {remaining}')
-
+          rows = cur.execute('''
+              SELECT i.id, c.slug, c.name, i.slug, i.name, i.english_name, i.price
+              FROM menu_menuitem i
+              JOIN menu_category c ON c.id = i.category_id
+              ORDER BY c.sort_order, i.sort_order, i.id
+          ''').fetchall()
+          with open('menu_db_export.csv','w',encoding='utf-8-sig',newline='') as f:
+              w=csv.writer(f)
+              w.writerow(['id','category_slug','category_name','item_slug','name','english_name','price'])
+              w.writerows(rows)
+          print('ROWS:', len(rows))
           con.close()
           PY
 
-      - name: Commit repaired database
+      - name: Commit export
         run: |
-          if git diff --quiet -- db.sqlite3; then
-            echo 'Database already contains the verified prices.'
-            exit 0
-          fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -f db.sqlite3
-          git commit -m 'Repair four missing menu prices from live DIDI menu [skip ci]'
+          git add menu_db_export.csv
+          git commit -m 'Export current menu database for full price verification [skip ci]' || exit 0
           git push origin HEAD:main
