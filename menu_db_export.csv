@@ -1,10 +1,10 @@
 ﻿id,category_slug,category_name,item_slug,name,english_name,price
-2,breakfast,صبحانه,new-mexico,نیو مکزیکو,New Mexico,420000
+2,breakfast,صبحانه,new-mexico,نیو مکزیکو,New Mexico,430000
 3,breakfast,صبحانه,sunny-turkey,سانی ترکی,Sunny Turkey,590000
-4,breakfast,صبحانه,sweet-savory,سوییت ساووری,Sweet & Savory,630000
+4,breakfast,صبحانه,sweet-savory,سوییت ساووری,Sweet & Savory,590000
 5,breakfast,صبحانه,avo-supreme,آوو سوپریم,Avo Supreme,740000
 6,breakfast,صبحانه,hash-brown,هش براون,Hash Brown,590000
-7,breakfast,صبحانه,hot-pot-haricot,هات پات لوبیا,Hot Pot Haricot,420000
+7,breakfast,صبحانه,hot-pot-haricot,هات پات لوبیا,Hot Pot Haricot,430000
 8,breakfast,صبحانه,egg-brisket,اگ بریسکت,Egg Brisket,1260000
 9,breakfast,صبحانه,heaven-plate,هون پلیت,Heaven Plate,740000
 10,iranian-breakfast,صبحانه ایرانی,fried-egg,نیمرو,Fried Egg,390000
@@ -12,75 +12,75 @@
 12,iranian-breakfast,صبحانه ایرانی,sausage-omelet,املت ساسیج,Sausage Omelet,490000
 13,iranian-breakfast,صبحانه ایرانی,sausage-fried-egg,نیمرو ساسیج,Sausage Omelette,490000
 14,iranian-breakfast,صبحانه ایرانی,egg-fried-ghormeh,نیمرو قرمه,Egg Fried with Ghormeh,1260000
-15,hot-coffee,قهوه‌های گرم,cinnamon-latte,لاته سینامون,Cinnamon Latte,250000
+15,hot-coffee,قهوه‌های گرم,cinnamon-latte,لاته سینامون,Cinnamon Latte,350000
 16,hot-coffee,قهوه‌های گرم,espresso,اسپرسو,Espresso,220000
 17,hot-coffee,قهوه‌های گرم,americano,آمریکانو,Americano,220000
-18,hot-coffee,قهوه‌های گرم,cortado,کورتادو,Cortado,260000
-19,hot-coffee,قهوه‌های گرم,cappuccino,کاپوچینو,Cappuccino,210000
-20,hot-coffee,قهوه‌های گرم,latte,لاته,Latte,220000
-21,hot-coffee,قهوه‌های گرم,popcorn-latte,لاته پاپکورن,Popcorn Latte,240000
-22,hot-coffee,قهوه‌های گرم,mocha,موکا,Mocha,250000
-23,hot-coffee,قهوه‌های گرم,cream-mocha,موکا با خامه,Cream Mocha,270000
-24,cold-coffee,قهوه‌های سرد,cinnamon-ice-latte,آیس لاته سینامون,Cinnamon Ice Latte,250000
-25,cold-coffee,قهوه‌های سرد,tonic-espresso,تونیک اسپرسو,Tonic Espresso,220000
-26,cold-coffee,قهوه‌های سرد,didi-wine-brew,دی‌دی واین برو,DIDI Wine Brew,250000
-27,cold-coffee,قهوه‌های سرد,affogato,آفوگاتو,Affogato,270000
-28,cold-coffee,قهوه‌های سرد,irish-ice-latte,آیس لاته آیریش,Irish Ice Latte,240000
-29,cold-coffee,قهوه‌های سرد,caramel-ice-latte,آیس لاته کارامل,Caramel Ice Latte,240000
-30,cold-coffee,قهوه‌های سرد,ice-mocha,آیس موکا,Ice Mocha,250000
-31,cold-coffee,قهوه‌های سرد,coco-ice-latte,آیس لاته نارگیل,Coco Ice Latte,250000
-32,cold-coffee,قهوه‌های سرد,ice-latte,آیس لاته,Ice Latte,220000
+18,hot-coffee,قهوه‌های گرم,cortado,کورتادو,Cortado,265000
+19,hot-coffee,قهوه‌های گرم,cappuccino,کاپوچینو,Cappuccino,310000
+20,hot-coffee,قهوه‌های گرم,latte,لاته,Latte,325000
+21,hot-coffee,قهوه‌های گرم,popcorn-latte,لاته پاپکورن,Popcorn Latte,340000
+22,hot-coffee,قهوه‌های گرم,mocha,موکا,Mocha,365000
+23,hot-coffee,قهوه‌های گرم,cream-mocha,موکا با خامه,Cream Mocha,375000
+24,cold-coffee,قهوه‌های سرد,cinnamon-ice-latte,آیس لاته سینامون,Cinnamon Ice Latte,350000
+25,cold-coffee,قهوه‌های سرد,tonic-espresso,تونیک اسپرسو,Tonic Espresso,330000
+26,cold-coffee,قهوه‌های سرد,didi-wine-brew,دی‌دی واین برو,DIDI Wine Brew,360000
+27,cold-coffee,قهوه‌های سرد,affogato,آفوگاتو,Affogato,375000
+28,cold-coffee,قهوه‌های سرد,irish-ice-latte,آیس لاته آیریش,Irish Ice Latte,345000
+29,cold-coffee,قهوه‌های سرد,caramel-ice-latte,آیس لاته کارامل,Caramel Ice Latte,345000
+30,cold-coffee,قهوه‌های سرد,ice-mocha,آیس موکا,Ice Mocha,365000
+31,cold-coffee,قهوه‌های سرد,coco-ice-latte,آیس لاته نارگیل,Coco Ice Latte,355000
+32,cold-coffee,قهوه‌های سرد,ice-latte,آیس لاته,Ice Latte,325000
 33,cold-coffee,قهوه‌های سرد,ice-americano,آیس آمریکانو,Ice Americano,220000
-34,hot-drinks,نوشیدنی‌های گرم,ice-chocolate,آیس چاکلت,Ice Chocolate,200000
-35,hot-drinks,نوشیدنی‌های گرم,masala-tea,چای ماسالا,Masala Tea,250000
-36,hot-drinks,نوشیدنی‌های گرم,karak-tea,چای کرک,Karak Tea,250000
-37,hot-drinks,نوشیدنی‌های گرم,mint-chocolate,هات چاکلت نعنایی,Mint Chocolate,210000
-38,hot-drinks,نوشیدنی‌های گرم,hot-chocolate,هات چاکلت,Hot Chocolate,200000
+34,hot-drinks,نوشیدنی‌های گرم,ice-chocolate,آیس چاکلت,Ice Chocolate,305000
+35,hot-drinks,نوشیدنی‌های گرم,masala-tea,چای ماسالا,Masala Tea,295000
+36,hot-drinks,نوشیدنی‌های گرم,karak-tea,چای کرک,Karak Tea,295000
+37,hot-drinks,نوشیدنی‌های گرم,mint-chocolate,هات چاکلت نعنایی,Mint Chocolate,310000
+38,hot-drinks,نوشیدنی‌های گرم,hot-chocolate,هات چاکلت,Hot Chocolate,305000
 39,tea-herbal,چای و دمنوش,black-tea,چای سیاه,Black Tea,160000
-40,tea-herbal,چای و دمنوش,saffron-tea,چای زعفران,Saffron Tea,190000
-41,tea-herbal,چای و دمنوش,eternal-herbal-tea,دمنوش جاودانه,Eternal Herbal Tea,220000
-42,tea-herbal,چای و دمنوش,charming-herbal-tea,دمنوش دلبرانه,Charming Herbal Tea,220000
-43,tea-herbal,چای و دمنوش,asheghaneh-herbal-tea,دمنوش عاشقانه,Asheghaneh Herbal Tea,220000
-44,tea-herbal,چای و دمنوش,shokraneh-herbal-tea,دمنوش شکرانه,Shokraneh Herbal Tea,220000
+40,tea-herbal,چای و دمنوش,saffron-tea,چای زعفران,Saffron Tea,195000
+41,tea-herbal,چای و دمنوش,eternal-herbal-tea,دمنوش جاودانه,Eternal Herbal Tea,225000
+42,tea-herbal,چای و دمنوش,charming-herbal-tea,دمنوش دلبرانه,Charming Herbal Tea,235000
+43,tea-herbal,چای و دمنوش,asheghaneh-herbal-tea,دمنوش عاشقانه,Asheghaneh Herbal Tea,235000
+44,tea-herbal,چای و دمنوش,shokraneh-herbal-tea,دمنوش شکرانه,Shokraneh Herbal Tea,235000
 45,tea-herbal,چای و دمنوش,shahaneh-herbal-tea,دمنوش شاهانه,Shahaneh Herbal Tea,240000
 46,tea-herbal,چای و دمنوش,jananeh-herbal-tea,دمنوش جانانه,Jananeh Herbal Tea,220000
-47,mocktails,ماکتیل‌ها,pina-colada,پیناکولادا,Pina Colada,250000
-48,mocktails,ماکتیل‌ها,bloody,بلادی,Bloody,240000
-49,mocktails,ماکتیل‌ها,martini,مارتینی,Martini,250000
-50,mocktails,ماکتیل‌ها,miami-sunrise,میامی سانرایز,Miami Sunrise,240000
-51,mocktails,ماکتیل‌ها,new-york-city,نیویورک سیتی,New York City,220000
-52,mocktails,ماکتیل‌ها,big-bang,بیگ بنگ,Big Bang,250000
-53,mocktails,ماکتیل‌ها,lovers,لاورز,Lovers,280000
+47,mocktails,ماکتیل‌ها,pina-colada,پیناکولادا,Pina Colada,295000
+48,mocktails,ماکتیل‌ها,bloody,بلادی,Bloody,340000
+49,mocktails,ماکتیل‌ها,martini,مارتینی,Martini,297000
+50,mocktails,ماکتیل‌ها,miami-sunrise,میامی سانرایز,Miami Sunrise,345000
+51,mocktails,ماکتیل‌ها,new-york-city,نیویورک سیتی,New York City,335000
+52,mocktails,ماکتیل‌ها,big-bang,بیگ بنگ,Big Bang,355000
+53,mocktails,ماکتیل‌ها,lovers,لاورز,Lovers,380000
 54,mocktails,ماکتیل‌ها,khiar-sekanjebin,خیار سکنجبین,Khiar Sekanjebin,240000
-55,bakery,نان و شیرینی,chocolate-twist,چاکلت توییست,Chocolate Twist,210000
-56,bakery,نان و شیرینی,swiss-bun-chocolate,بن سوئیسی با سس شکلات,Swiss Bun with Chocolate,210000
+55,bakery,نان و شیرینی,chocolate-twist,چاکلت توییست,Chocolate Twist,215000
+56,bakery,نان و شیرینی,swiss-bun-chocolate,بن سوئیسی با سس شکلات,Swiss Bun with Chocolate,215000
 57,bakery,نان و شیرینی,chocolate-walnut-cookie,کوکی شکلات گردو,Chocolate Walnut Cookie,180000
 58,bakery,نان و شیرینی,double-chocolate-cookie,کوکی دبل چاکلت,Double Chocolate Cookie,180000
 59,bakery,نان و شیرینی,oatmeal-cranberry-cookie,کوکی رژیمی اوتمیل و کرن‌بری,Oatmeal and Cranberry Diet Cookie,180000
 60,bakery,نان و شیرینی,chocolate-croissant,کروسان شکلاتی,Chocolate Croissant,285000
-61,bakery,نان و شیرینی,butter-croissant,کروسان کره‌ای ساده,Butter Croissant,220000
-62,desserts,دسر و شیرینی,pina-colada-tart,تارت پیناکولادا,Pina Colada Tart,220000
-63,desserts,دسر و شیرینی,snickers-cake,کیک اسنیکرز,Snickers Cake,280000
-64,desserts,دسر و شیرینی,chocolate-raspberry-tart,تارت شکلات رزبری,Chocolate & Raspberry Tart,220000
-65,desserts,دسر و شیرینی,mango-mousse,موس انبه,Mango Mousse,210000
-66,desserts,دسر و شیرینی,banoffee,بانوفی,Banoffee,220000
+61,bakery,نان و شیرینی,butter-croissant,کروسان کره‌ای ساده,Butter Croissant,225000
+62,desserts,دسر و شیرینی,pina-colada-tart,تارت پیناکولادا,Pina Colada Tart,320000
+63,desserts,دسر و شیرینی,snickers-cake,کیک اسنیکرز,Snickers Cake,395000
+64,desserts,دسر و شیرینی,chocolate-raspberry-tart,تارت شکلات رزبری,Chocolate & Raspberry Tart,320000
+65,desserts,دسر و شیرینی,mango-mousse,موس انبه,Mango Mousse,310000
+66,desserts,دسر و شیرینی,banoffee,بانوفی,Banoffee,330000
 67,desserts,دسر و شیرینی,three-milk-pistachio-cake,کیک سه شیر پسته,Three Milk Pistachio Cake,420000
-68,desserts,دسر و شیرینی,san-sebastian,چیزکیک سن سباستین,San Sebastian,280000
+68,desserts,دسر و شیرینی,san-sebastian,چیزکیک سن سباستین,San Sebastian,350000
 69,desserts,دسر و شیرینی,caramel-filbert-tart,تارت کارامل فندق,Caramel & Filbert Tart,300000
 70,desserts,دسر و شیرینی,pistachio-tart,تارت پسته,Pistachio Tart,440000
-71,natural-drinks,آبمیوه‌های طبیعی,ice-cream-carrot,آب هویج بستنی,Ice Cream Carrot,250000
-72,natural-drinks,آبمیوه‌های طبیعی,pomo-berry,پومو بری,Pomo Berry,220000
-73,natural-drinks,آبمیوه‌های طبیعی,sparkle,اسپارکل,Sparkle,220000
-74,natural-drinks,آبمیوه‌های طبیعی,orange-peach,اورنج پیچ,Orange Peach,250000
+71,natural-drinks,آبمیوه‌های طبیعی,ice-cream-carrot,آب هویج بستنی,Ice Cream Carrot,360000
+72,natural-drinks,آبمیوه‌های طبیعی,pomo-berry,پومو بری,Pomo Berry,380000
+73,natural-drinks,آبمیوه‌های طبیعی,sparkle,اسپارکل,Sparkle,395000
+74,natural-drinks,آبمیوه‌های طبیعی,orange-peach,اورنج پیچ,Orange Peach,395000
 75,smoothies,اسموتی‌ها,faloode-bastani,فالوده بستنی مغزدار,Faloode Bastani,420000
 76,smoothies,اسموتی‌ها,american-style,امریکن استایل,American Style,315000
-77,smoothies,اسموتی‌ها,tropical-style,تروپیکال استایل,Tropical Style,220000
-78,smoothies,اسموتی‌ها,berry-style,بری استایل,Berry Style,220000
-79,smoothies,اسموتی‌ها,margarita-style,مارگاریتا استایل,Margarita Style,280000
-80,milkshakes,میلک‌شیک‌ها,chocolate-milkshake,چاکلت شیک,Chocolate Milkshake,440000
-81,milkshakes,میلک‌شیک‌ها,coconut-milkshake,کوکو شیک,Coconut Milkshake,420000
-82,milkshakes,میلک‌شیک‌ها,cookie-milkshake,کوکی شیک,Cookie Milkshake,450000
-83,milkshakes,میلک‌شیک‌ها,popcorn-milkshake,پاپ شیک,Popcorn Milkshake,290000
+77,smoothies,اسموتی‌ها,tropical-style,تروپیکال استایل,Tropical Style,325000
+78,smoothies,اسموتی‌ها,berry-style,بری استایل,Berry Style,335000
+79,smoothies,اسموتی‌ها,margarita-style,مارگاریتا استایل,Margarita Style,295000
+80,milkshakes,میلک‌شیک‌ها,chocolate-milkshake,چاکلت شیک,Chocolate Milkshake,445000
+81,milkshakes,میلک‌شیک‌ها,coconut-milkshake,کوکو شیک,Coconut Milkshake,430000
+82,milkshakes,میلک‌شیک‌ها,cookie-milkshake,کوکی شیک,Cookie Milkshake,455000
+83,milkshakes,میلک‌شیک‌ها,popcorn-milkshake,پاپ شیک,Popcorn Milkshake,395000
 84,milkshakes,میلک‌شیک‌ها,pro-milk-shake,پرو شیک,Pro Milk Shake,480000
 85,milkshakes,میلک‌شیک‌ها,nutty-milk-shake,ناتی شیک,Nutty Milk Shake,460000
 86,fizzy-bar,فیزی بار,texas-soda,تگزاس سودا,Texas Soda,118000
