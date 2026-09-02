@@ -26,6 +26,7 @@
         .top-category__placeholder{position:absolute;inset:0;display:grid;place-items:center;color:rgba(255,255,255,.18);font-size:22px;font-weight:800;letter-spacing:5px}
         .top-category__title{position:absolute;z-index:2;right:12px;left:12px;bottom:14px;text-align:center;color:#fff;font-size:15px;font-weight:700;text-shadow:0 2px 8px rgba(0,0,0,.35)}
         .category-page__back{display:block;width:fit-content;margin:30px auto 0;color:#7f735e;font-size:12px;text-decoration:none}
+        .category-page__tax{margin:12px auto 0;text-align:center;color:#7f735e;font-size:12px;font-weight:400;line-height:1.9}
 
         @media(max-width:700px){
             .category-page__hero{padding:30px 18px 24px}
@@ -71,6 +72,7 @@
             {% endfor %}
         </div>
         <a class="category-page__back" href="{% url 'menu:welcome' %}">بازگشت به صفحه اصلی</a>
+        <p class="category-page__tax">۱۰ درصد مالیات روی فاکتور شما محاسبه خواهد شد</p>
     </section>
 </main>
 </body>
