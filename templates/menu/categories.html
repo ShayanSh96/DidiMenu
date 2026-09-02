@@ -8,142 +8,19 @@
     <title>DIDI | Categories</title>
     <link rel="stylesheet" href="{% static 'menu/style.css' %}">
     <style>
-        body { background: #f5f1e9; }
-        .category-page {
-            min-height: 100vh;
-            background: #f5f1e9;
-        }
-        .category-page__hero {
-            padding: 48px 20px 34px;
-            text-align: center;
-            color: #fff;
-            background: #10203f;
-        }
-        .category-page__logo {
-            direction: ltr;
-            font-size: 44px;
-            font-weight: 800;
-            letter-spacing: 9px;
-            line-height: 1;
-        }
-        .category-page__eyebrow {
-            margin: 12px 0 0;
-            direction: ltr;
-            font-size: 9px;
-            letter-spacing: 4px;
-            opacity: .55;
-        }
-        .category-page__title {
-            margin: 30px 0 6px;
-            font-size: 25px;
-        }
-        .category-page__subtitle {
-            margin: 0;
-            font-size: 13px;
-            opacity: .68;
-        }
-        .category-page__content {
-            width: min(100%, 920px);
-            margin: 0 auto;
-            padding: 28px 16px 42px;
-        }
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 14px;
-        }
-        .top-category {
-            position: relative;
-            min-height: 150px;
-            overflow: hidden;
-            border-radius: 18px;
-            background: #1b2d50;
-            box-shadow: 0 10px 28px rgba(16,32,63,.10);
-        }
-        .top-category img {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            inset: 0;
-            object-fit: cover;
-        }
-        .top-category::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(8,17,34,.08) 18%, rgba(8,17,34,.84) 100%);
-        }
-        .top-category__placeholder {
-            position: absolute;
-            inset: 0;
-            display: grid;
-            place-items: center;
-            color: rgba(255,255,255,.18);
-            font-size: 22px;
-            font-weight: 800;
-            letter-spacing: 5px;
-        }
-        .top-category__title {
-            position: absolute;
-            z-index: 2;
-            right: 12px;
-            left: 12px;
-            bottom: 14px;
-            text-align: center;
-            color: #fff;
-            font-size: 15px;
-            font-weight: 700;
-            text-shadow: 0 2px 8px rgba(0,0,0,.35);
-        }
-        .category-page__back {
-            display: block;
-            width: fit-content;
-            margin: 30px auto 0;
-            color: #7f735e;
-            font-size: 12px;
-        }
-        @media (max-width: 700px) {
-            .category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-            .top-category { min-height: 132px; border-radius: 16px; }
-        }
-        @media (max-width: 380px) {
-            .category-page__content { padding-left: 12px; padding-right: 12px; }
-            .category-grid { gap: 10px; }
-            .top-category { min-height: 120px; }
-            .top-category__title { font-size: 13px; }
-        }
+        body{background:#f5f1e9}.category-page{min-height:100vh;background:#f5f1e9}.category-page__hero{padding:34px 20px 28px;text-align:center;color:#fff;background:#10203f}.category-page__logo-card{width:min(58vw,220px);margin:0 auto 20px;padding:10px 12px;background:#fff}.category-page__logo-card img{display:block;width:100%;height:auto}.category-page__title{margin:0 0 6px;font-size:25px}.category-page__subtitle{margin:0;font-size:13px;opacity:.68}.category-page__content{width:min(100%,920px);margin:0 auto;padding:28px 16px 42px}.category-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.top-category{position:relative;min-height:150px;overflow:hidden;border-radius:18px;background:#1b2d50;box-shadow:0 10px 28px rgba(16,32,63,.10)}.top-category img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover}.top-category:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,17,34,.08) 18%,rgba(8,17,34,.84) 100%)}.top-category__placeholder{position:absolute;inset:0;display:grid;place-items:center;color:rgba(255,255,255,.18);font-size:22px;font-weight:800;letter-spacing:5px}.top-category__title{position:absolute;z-index:2;right:12px;left:12px;bottom:14px;text-align:center;color:#fff;font-size:15px;font-weight:700;text-shadow:0 2px 8px rgba(0,0,0,.35)}.category-page__back{display:block;width:fit-content;margin:30px auto 0;color:#7f735e;font-size:12px}@media(max-width:700px){.category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.top-category{min-height:132px;border-radius:16px}.category-page__logo-card{width:min(54vw,200px)}}@media(max-width:380px){.category-page__content{padding-left:12px;padding-right:12px}.category-grid{gap:10px}.top-category{min-height:120px}.top-category__title{font-size:13px}}
     </style>
 </head>
 <body>
-    <main class="category-page">
-        <header class="category-page__hero">
-            <div class="category-page__logo">DIDI</div>
-            <p class="category-page__eyebrow">CAFE & RESTAURANT</p>
-            <h1 class="category-page__title">منوی دیدی</h1>
-            <p class="category-page__subtitle">دسته‌بندی مورد نظرتان را انتخاب کنید</p>
-        </header>
-
-        <section class="category-page__content">
-            <div class="category-grid">
-                {% for category in categories %}
-                    <a class="top-category" href="?category={{ category.slug }}#products">
-                        {% if category.image %}
-                            <img src="{{ category.image.url }}" alt="{{ category.name }}" loading="lazy">
-                        {% else %}
-                            <div class="top-category__placeholder">DIDI</div>
-                        {% endif %}
-                        <span class="top-category__title">{{ category.name }}</span>
-                    </a>
-                {% empty %}
-                    <div class="empty-state">
-                        <strong>DIDI</strong>
-                        <p>دسته‌بندی‌ها در حال آماده‌سازی هستند.</p>
-                    </div>
-                {% endfor %}
-            </div>
-
-            <a class="category-page__back" href="{% url 'menu:welcome' %}">بازگشت به صفحه اصلی</a>
-        </section>
-    </main>
-</body>
-</html>
+<main class="category-page">
+<header class="category-page__hero">
+<div class="category-page__logo-card"><img alt="DIDI SPACE" src="data:image/webp;base64,UklGRqwOAABXRUJQVlA4IKAOAABwZACdASp8AUwBPpVGnkyloyMiIREbWLASiWlu8p9XgS/+ydnI/uWpf6qf5X+j92f+l7iX1D+P4wUR35N9+/3v9x9tH8X33/KnUO/HP6Z/tN6fAB9RP91xu/ON7gH6q8Yh9t/6PsCfpT0DP/TzVfoH+s9hb9cP+n2KfSjI/3fGK7pqiL1VhC1k+hkN797Y/qVoR9f7TYwGTybhd7zvjFfGK+MV8YnmJCiDKZNkC0W6irNrVKElJlGXzZpeppbd+mXXBB4Q5fXcyeYXSI1m3iNFfGK+MV8Yr4vZy4b1gdvbV8mUCRudIlJfKS+Ul8pMG4NlFp7vjFfGK+MV8Yr4xXxivjFfB4kEtz/qh6IUIYXvW+CCB+Vu2pLhs6OJbxE5reVU2ZVCm09J+EoTdCE1YUm1/bGn30n0kzcXJVn5DBuo+05B+p4zTC8lH66fRUV9YrW4UcD8FHWeD2qyfXZ656gkj3tgsro7SSuRRHkX2THt6aFPXsIN5hao3n37fc3kEN0XuuFaTeYYB9K1YzHoh84+sQxSKDeXP+T7ZB8VWXnK7A2w/dq55MdkEvX1ELVj/c2PVaxd61i4iRvl9X5wPTJUvx92DjH4vK1vYPy8EH7BH1EoIIR9Ivpcv53prFDz9EqJVXQksyVUWi2M0aCruzz64g2EjgHvv+avKrd41l0eCW9Zom5D7Nj+xQWjHrCsHQj6iPBRhivUVbQug4JTl7A8cw1WsXdwEdj1ouuwqpZRxTsncOphfjHNB6EdXWj2r1ZXHaoJeN8wUNSnx72Inyino+7ndfwkwFPIcj94kyQQhPjLku13YU6oNtEeWEdr0L3qLgrduVA2oexutmoX252bydULg7ICJMTZRCyCXymRESjxXjFnxr2FEh6JBw2kuwbAPso1W5c/k6lQ4lbhPoslz0ZQS0ju9hRIeiIuX0VGI2Oudrqngx9HdNsQKResCsLD1jGBSPTd6TaoIxYPT1ti2rSXykvlJfIlXfB4S9ETTiRsN5fgUXhErAZPKjncOIQhWetERA7CiQ9Eh6JKFsCB9dhhecwOAr4BuC2LMU9KRcancasWysK5IeiQYAD+/mZHoRRbz+BYWvt1DQNnY6R7CMIvunu/qgqoG9/wZlqApzqHBUza4z7IK2VJXu2CwTnicmKUbEFmgldtGH/c00zg9mv942HLQPyAFgbD8+qm2Jt/Q3+v35C8Ar56n1qDFAfbAqW6bInKm8Ti0161lDhDf1Ikg9bLtiv97yHogLnEkYKiiD3QJK6XhTz0uTQ03X9Gic1Oa7EAur39T4oCAdG9Y9z8tIHQ83Miv+l+5/4DTpo2e6kKqAKemBOuF+E72OhiSM50p5ct/BhuQRAuJiek0eezHB3DD7iMO8zY9U1alzA0dT8VP+q3kYQVzof5hr0TkXmrXx/rxeGtg2b81hdmjbsQ+icFgm4n9w4ybpHGUNxvx4jiQnPK4NWOIRFLixoR8DKuNfo4sp+NTNuI7/SDCWCQNBmD7UZ+pvTnOgxA6VFeR0HvxYtJioEL5VE3CAH6EplAya3XiekviNBoZlSRyAH5K4y8dKkA8FVdPe/b+ygWpkOGg1v+985worrWppuuNz0MYWc5y3r9B+SSo1Z40GCbBBrz/xEei32gX6I9cUS/oo/hkPlzBEtQ1PJSLjml14gyIeuAiZ3VVELRf4FuBoFre1o/lY8BxcaQ0p68BNxsDPnnT91JCcyUXy1wn8uuLtFcRfw4Qt28HhrLNNrQMGL1AMJLhAa/BfzTq4fNe/8DMq3xa3FFcBKXtfG/uE/AZB9pW6Rmai4q7u/keJsNroyMfl3QT+29QGeEAziLPh95kASq8iv3hLHCboA28e0gCOUQ/EygudFhaXTfPgeII3waanxPF1c9qvtaFzY66iXRS/G7Gjj9RNaTutwxPoS4wlEtD6kcLy1teh9LtUJHZLlVgpI8nZ5b2SBIxh04+gAAAV8/l+YpL6JnUopMCBcypiCfE817ZSFrb4bRUVXk7XeCUNh+IZxoPgnKExn270lxwkBbBI1SdryA49BpoqFDWjCGEuOuqQRsllw5GYF4mnLHbyI2dSIAFhw40z+GXzriZJCd9ggxpAg1C1W1llI/p+R9zkPxraHSgPGytE4kzAfORy1cv/obQBFxM/ym1TFSn7xkP6euv+uJHVUewoVUzD6eJOX3sjnB0KJYb+wkzooio958PZQbVsiSV5A6cIc2MnUr6eoSctbl0HOfHN2yxJKV/o6p4vuBhjLG8qmSxZRwHQg0vOV8xFm6NQsJhhB9MssFyhM+3iqxfXCIYpuKAKEmxoV/4XnGqnNDHqQxVhK7jKgQ+7p4kAR5iTLPL6IM+sHMA3dAtcSuh4bpkiNV4AoeGrYo8aykAH6H62uoMxH99IHn61/ZUWi1Gtvc8ova3GNj5HeMeTffdzkDb/srGVWRwHN6sX1Xoi1wH5TcYn+OF/fHHmQ5z3x0evbdHxHZsC1jIcMCdpoE1voDe+/vI8nMbXlnGNMC8BcPYJ52MXkyMiqC7MeEgDZwTcuPzgdScFWLB+I5oLwVETKruEKfz6wxMR37mb/YznPkWJ4QWU2gUSvF9sB9uuFUwlsuTrgFkd4caqqShXvuC7bisVBGm6LrHsWMcz91EBhetGZ4vI7bEwM/KftlNec5LLD3XMJuW8ph+7XCQFAkMCPAJAdpofyWIEUDL/No6zSPhyZAF8IGz83s9QNCgM5uAUWys4s85OSQ3uu8eOXBxyoXpeW+mwRG2aw2YN6f3H0EqsRSq2bIqIuROkiDtfduPAYVwmH9NbGV4ouvaCdDU2AO+eStfTYX4jb8gaT1nt+5rPGfvZv5V6u+a5IWISZdPT3EgOE81HxIg6jeiTsqZhntQ0lahrWO9o7hXV9MkwrCGMMJjOAK8Ehq030UlFd7HNb6cGkHblOOag6Ck36NtXkgjngu94OvMk2DLqPB8Z6H8tXkLXJ2oAGEeh6Z7oW8l2YRJH+JybATRP0cFniUjGbQ5ojLiXZsQ+oUflDXK5x6dL3gTikIo8+ZeR/qGsaMpgaAad+ULmPx7icIC6HI4TQgIDS5s9OwtlhnVUzFFOadVdavkztBwWdKSs/gBvpY7A7tKDxSlNbSQdemDQFwiT7whBG/F43I4n4KBj5xPi+TrAN/IyW8vlm5zLY9tfAVBOYqn7sDVeDLLdDTZHLTcF8x1TtJpgBf3+bAyI97rLiJgmAMu+j7eybN02tdluAxojzERwg23dKlTA5gDetEi0B+17JRtnPH/iaep5U1fu4U1EnzRcBXGLSupg1uEL53YMg6fh30/RgwbSm7zprB87VlDV9vH4JozMfA5uPR1SKt4tDtf9F9FKdajSWqR2WRpXP9Nh6nciX4lsv4cxgjm7/qRtl1H6PMQ7gqkZM4RCO5AnWEBfdbAJ5dFAm2FYSlfTzSO+9bweZheJZ19OtBQF5s86rYGXv0c/8gnTl+Mqlb6USZcTnsMMRZfMm60XFnSnXLHJKuVuEPW0wqFEIR2JF7pTLtQaIU7dWRFaaMUhrSBNdpI+tPefXQplwrai8tG43pBEZ57yNZKzf2qIvAk2UhosbGeMGChGSFMqmPymDNmJLDJlIUsLhAxArWT6cEw4Dl2CGPqbHVrIX2o/5MrxCGmbu6C1Q2BRhlq8VDRYQ53Q65wx9vfKm/RPVIlr8vhUVtCxXUP6Ah9aPLKPlX6b4agBxUocKJZoI12WmJ+Hk7i6+yu89sc/ikqj/X20IwhJ5MJBmKPUFfL6GGv42FemkMKXFb3HT5y1CBQmP6Ltattb2YtYLpaRA4js20YJkxG0TkSIolSSF5ypA4hLrDdtldbU16ZX798LZRs1STllUEOJq6ZnMPY9A6Bd4dKa745dLRe4F9sSwVWB2asD+WF6pKxXW8hAfsCP4/BEcuT3gnjY3bqnOY2TC0uz9qBvaMU8gIm1UFp2Pqov9b9gMraDECCWfTbPYg7YE8shm1cRIOcUsZhz4o2tDyO1UmteCW5oE4iNy1suVuFI8UXw7Jm53kZcHf4NTSzIEIvUnIkUDaetJc8qofu7llepXythhivhMcZv0m743Lxrq5wCWv925SBNMEhY6RifIBMe8nad81rvxJb/2wjZDq53sTixkQK9hEOrxOqwPj0exDFSGivl6xr5RfQrs1hFsRwTwAm+y6YdE+L92OXB2hzhkqhMF50/sapFa81Sxl5eMiJJ+JOFe/7XcrYPiskFjH0ZKvxNgOz5UDnY1EdoKP3siXeTW2B9HhBAhCZJlpx+zJftepoCml3dAUxkuh/i7JtCQFB3AE2xwZe4NScNfAH9OOTEPztkzoqq7bHb1Jta/TDOtczDSGryt/iO/jHuoIdVuajg/Xzr9gnoTbwwBtSFAIZ4FzJVpJq4A2iTU/0lrhRl/uJFZ+WxRZGkk8XL8GZvOF81LHVU53hsdMD+aqeMWFKKXqCeQdkMrmUc0r0hHU3lD+XVJU855BIUdnwShPO20oPvRG4i9gZ8PKf8pHqFjq+L/EdM9ZOklbmLjAQyJDwCuNoKVUnifWuqY9sqsogmFdV3RGM+7qS78VjlOM7l7ZhwSRzMi6BuTtpWCf8v7ezwQQQoBSPHmdU/zSxQJJO4Kb2qI9W+gRG4RN8N7zKzfHIKlIl//jkEUGX1iSntW94sD4z5F6u5Cvr7YWq1CrrwMlUG3A7s6wLWWCtHweoiHTVVFzj+fJN1Y2hHb1r20CHvlJITkBVEVGpGg1tt6ReMLhHP6xPbObBG9q0et+noQuaPYdH0fTKJuTBNtN19tJ23X8ye6H9Jn0byP29LuddgxG+p9VpkEWIIyAb/9inySQ4jcDukNYe0LFLGYRK0U2gBgIwx7/F5k7EjLLTsDaHVelFoyYALibb0uW4Sm/df2uNYtaRIuqyLEnZU9hlbU2LUNU7ITzZAGl9fISo6q1dXIbyvQFe79KRgy+Fryjd9K7LECXoIAbKM7p92VucO79NbS60YaoAAA="></div>
+<h1 class="category-page__title">منوی دیدی</h1>
+<p class="category-page__subtitle">دسته‌بندی مورد نظرتان را انتخاب کنید</p>
+</header>
+<section class="category-page__content"><div class="category-grid">
+{% for category in categories %}
+<a class="top-category" href="?category={{ category.slug }}#products">{% if category.image %}<img src="{{ category.image.url }}" alt="{{ category.name }}" loading="lazy">{% else %}<div class="top-category__placeholder">DIDI</div>{% endif %}<span class="top-category__title">{{ category.name }}</span></a>
+{% empty %}<div class="empty-state"><strong>DIDI</strong><p>دسته‌بندی‌ها در حال آماده‌سازی هستند.</p></div>{% endfor %}
+</div><a class="category-page__back" href="{% url 'menu:welcome' %}">بازگشت به صفحه اصلی</a></section>
+</main></body></html>
