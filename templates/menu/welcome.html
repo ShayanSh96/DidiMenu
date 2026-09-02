@@ -1,54 +1,37 @@
 <!doctype html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="theme-color" content="#111827">
-    <title>DIDI | Welcome</title>
-    <style>
-        *{box-sizing:border-box}
-        html,body{margin:0;width:100%;min-height:100%}
-        body{min-height:100vh;min-height:100svh;font-family:Tahoma,Arial,sans-serif;background:#141414;color:#10203f}
-        .landing{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:24px 16px;background:linear-gradient(rgba(8,12,18,.64),rgba(8,12,18,.64)),url('/media/menu/categories/2A9F69E9-5592-4F7D-9E42-E8BC9E0A1324-1152x1536.jpeg') center/cover no-repeat,#141414}
-        .landing:before{content:'';position:absolute;inset:0;background:radial-gradient(circle at center,rgba(255,255,255,.03),rgba(0,0,0,.18));pointer-events:none}
-        .panel{position:relative;z-index:1;width:min(100%,410px);display:flex;flex-direction:column;align-items:center}
-        .brand-logo{position:relative;width:min(86vw,360px);height:150px;margin-bottom:58px;display:flex;align-items:center;justify-content:center;color:#fff;direction:ltr}
-        .brand-logo:before,.brand-logo:after{content:'';position:absolute;left:50%;top:50%;width:72%;height:72%;border:1.5px solid rgba(255,255,255,.95);transform:translate(-50%,-50%) rotate(45deg);pointer-events:none}
-        .brand-logo:after{width:60%;height:60%;opacity:.68}
-        .brand-dots{position:absolute;inset:0;pointer-events:none}
-        .brand-dots i{position:absolute;width:6px;height:6px;border-radius:50%;background:#fff}
-        .brand-dots i:nth-child(1){left:5%;top:31%}.brand-dots i:nth-child(2){left:5%;top:50%}.brand-dots i:nth-child(3){left:5%;top:69%}
-        .brand-dots i:nth-child(4){right:5%;top:31%}.brand-dots i:nth-child(5){right:5%;top:50%}.brand-dots i:nth-child(6){right:5%;top:69%}
-        .brand-core{position:relative;z-index:2;text-align:center;text-shadow:0 2px 10px rgba(0,0,0,.35)}
-        .brand-year{font-family:Georgia,serif;font-size:13px;line-height:1;margin-bottom:4px}
-        .brand-name{font-family:Arial,sans-serif;font-size:58px;font-weight:300;letter-spacing:3px;line-height:.95}
-        .brand-space{font-family:Georgia,serif;font-size:18px;letter-spacing:2px;margin-top:5px}
-        .nav-links{width:100%;display:flex;flex-direction:column;align-items:center;gap:24px}
-        .nav-link{width:min(66vw,240px);min-height:64px;display:flex;align-items:center;justify-content:center;padding:10px 18px;border:2px solid #10203f;background:rgba(255,255,255,.94);color:#10203f;text-decoration:none;font-size:clamp(20px,5vw,25px);font-weight:500;box-shadow:0 8px 22px rgba(0,0,0,.13);transition:transform .18s ease,background .18s ease}
-        .nav-link:hover{transform:translateY(-2px);background:#fff}
-        .nav-link--muted{background:rgba(233,233,233,.78)}
-        @media(max-width:600px){.landing{padding-top:28px;padding-bottom:28px}.panel{width:100%}.brand-logo{width:min(88vw,325px);height:136px;margin-bottom:42px}.brand-name{font-size:50px}.brand-space{font-size:16px}.nav-links{gap:18px}.nav-link{width:min(70vw,250px);min-height:58px;font-size:20px}}
-        @media(max-height:720px){.brand-logo{width:min(68vw,280px);height:118px;margin-bottom:24px}.brand-name{font-size:44px}.brand-space{font-size:14px}.nav-links{gap:12px}.nav-link{min-height:50px;font-size:18px}}
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111827">
+<title>DIDI | Welcome</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;min-height:100%}body{font-family:Tahoma,Arial,sans-serif;background:#111;color:#10203f}.landing{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:24px 16px;background:linear-gradient(rgba(8,12,18,.62),rgba(8,12,18,.62)),url('/media/menu/categories/2A9F69E9-5592-4F7D-9E42-E8BC9E0A1324-1152x1536.jpeg') center/cover no-repeat,#141414}.panel{position:relative;z-index:1;width:min(100%,410px);display:flex;flex-direction:column;align-items:center}.brand{width:min(92vw,390px);margin:0 0 46px;color:#fff;filter:drop-shadow(0 8px 20px rgba(0,0,0,.35))}.brand svg{display:block;width:100%;height:auto;overflow:visible}.nav-links{width:100%;display:flex;flex-direction:column;align-items:center;gap:20px}.nav-link{width:min(70vw,245px);min-height:62px;display:flex;align-items:center;justify-content:center;padding:10px 18px;border:1.5px solid #10203f;background:rgba(255,255,255,.95);color:#10203f;text-decoration:none;font-size:22px;font-weight:500;box-shadow:0 8px 22px rgba(0,0,0,.16);transition:.18s}.nav-link:hover{transform:translateY(-2px);background:#fff}.nav-link--muted{background:rgba(235,235,235,.88)}@media(max-width:600px){.landing{padding:24px 14px}.brand{width:min(94vw,360px);margin-bottom:38px}.nav-links{gap:16px}.nav-link{width:min(72vw,250px);min-height:56px;font-size:20px}}@media(max-height:720px){.brand{width:min(76vw,300px);margin-bottom:22px}.nav-links{gap:11px}.nav-link{min-height:48px;font-size:18px}}
+</style>
 </head>
 <body>
 <main class="landing">
-    <section class="panel" aria-label="ورود به بخش‌های دیدی">
-        <div class="brand-logo" aria-label="DIDI SPACE">
-            <div class="brand-dots"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-            <div class="brand-core">
-                <div class="brand-year">2025</div>
-                <div class="brand-name">DIDI</div>
-                <div class="brand-space">SPACE</div>
-            </div>
-        </div>
-        <nav class="nav-links">
-            <a class="nav-link" href="{% url 'menu:home' %}">منو</a>
-            <a class="nav-link" href="{% url 'menu:story' %}">داستان‌ما</a>
-            <a class="nav-link nav-link--muted" href="#" aria-disabled="true">رویدادها</a>
-            <a class="nav-link" href="{% url 'menu:family' %}">خانواده‌ی دی‌دی</a>
-        </nav>
-    </section>
+<section class="panel" aria-label="ورود به بخش‌های دیدی">
+<div class="brand" aria-label="DIDI SPACE">
+<svg viewBox="0 0 1200 560" role="img" aria-label="DIDI SPACE logo">
+<g fill="none" stroke="currentColor" stroke-width="3">
+<path d="M95 210 L600 45 L1105 210 L1035 235 L600 90 L165 235 Z"/>
+<path d="M95 260 L600 95 L1105 260 L1035 285 L600 140 L165 285 Z"/>
+<path d="M95 310 L600 145 L1105 310 L600 475 Z"/>
+</g>
+<g fill="currentColor"><circle cx="125" cy="210" r="7"/><circle cx="125" cy="260" r="7"/><circle cx="125" cy="310" r="7"/><circle cx="1075" cy="210" r="7"/><circle cx="1075" cy="260" r="7"/><circle cx="1075" cy="310" r="7"/></g>
+<text x="600" y="205" text-anchor="middle" fill="currentColor" font-family="Georgia,serif" font-size="34" text-decoration="line-through">2025</text>
+<text x="600" y="345" text-anchor="middle" fill="currentColor" font-family="Arial,sans-serif" font-weight="300" font-size="145" letter-spacing="5">DIDI</text>
+<text x="600" y="410" text-anchor="middle" fill="currentColor" font-family="Arial,sans-serif" font-weight="300" font-size="48" letter-spacing="3">SPACE</text>
+</svg>
+</div>
+<nav class="nav-links">
+<a class="nav-link" href="{% url 'menu:categories' %}">منو</a>
+<a class="nav-link" href="{% url 'menu:story' %}">داستان ما</a>
+<span class="nav-link nav-link--muted">رویدادها</span>
+<a class="nav-link" href="{% url 'menu:family' %}">خانواده‌ی دیدی</a>
+</nav>
+</section>
 </main>
 </body>
 </html>
