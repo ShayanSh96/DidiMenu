@@ -1,0 +1,85 @@
+name: Repair DIDI database prices
+
+on:
+  push:
+    paths:
+      - '.github/workflows/repair-db-prices.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  repair-db:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify and repair four missing prices
+        run: |
+          python - <<'PY'
+          import sqlite3
+          from pathlib import Path
+
+          db = Path('db.sqlite3')
+          con = sqlite3.connect(db)
+          cur = con.cursor()
+
+          fixes = {
+              'کروسان شکلاتی': 285_000,
+              'امریکن استایل': 315_000,
+              'پرو شیک': 480_000,
+              'ناتی شیک': 460_000,
+          }
+
+          before = cur.execute(
+              'SELECT COUNT(*) FROM menu_menuitem WHERE price = 0 OR price IS NULL'
+          ).fetchone()[0]
+          print('ZERO before:', before)
+
+          for name, price in fixes.items():
+              rows = cur.execute(
+                  'SELECT id, name, english_name, price FROM menu_menuitem WHERE name = ?',
+                  (name,),
+              ).fetchall()
+              if len(rows) != 1:
+                  raise SystemExit(f'Expected exactly one row for {name!r}, found {len(rows)}: {rows}')
+              row = rows[0]
+              print(f'UPDATE id={row[0]} | {row[1]} | {row[2]} | {row[3]} -> {price}')
+              cur.execute('UPDATE menu_menuitem SET price = ? WHERE id = ?', (price, row[0]))
+
+          con.commit()
+
+          total = cur.execute('SELECT COUNT(*) FROM menu_menuitem').fetchone()[0]
+          after = cur.execute(
+              'SELECT COUNT(*) FROM menu_menuitem WHERE price = 0 OR price IS NULL'
+          ).fetchone()[0]
+
+          print('TOTAL:', total)
+          print('ZERO after:', after)
+
+          if total != 187:
+              raise SystemExit(f'Unexpected menu item count: {total}, expected 187')
+          if after != 0:
+              remaining = cur.execute(
+                  'SELECT id, name, english_name, price FROM menu_menuitem WHERE price = 0 OR price IS NULL'
+              ).fetchall()
+              raise SystemExit(f'Zero prices remain: {remaining}')
+
+          con.close()
+          PY
+
+      - name: Commit repaired database
+        run: |
+          if git diff --quiet -- db.sqlite3; then
+            echo 'Database already contains the verified prices.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f db.sqlite3
+          git commit -m 'Repair four missing menu prices from live DIDI menu [skip ci]'
+          git push origin HEAD:main
