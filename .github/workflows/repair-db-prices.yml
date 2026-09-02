@@ -1,4 +1,4 @@
-name: Export DIDI database menu
+name: Fully verify DIDI menu prices
 
 on:
   push:
@@ -10,36 +10,139 @@ permissions:
   contents: write
 
 jobs:
-  export-db:
+  repair-db:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Export menu rows
+      - name: Apply prices verified from the live-menu video
         run: |
           python - <<'PY'
-          import csv, sqlite3
+          import csv
+          import sqlite3
+
+          fixes = {
+              'new-mexico': 430_000,
+              'sweet-savory': 590_000,
+              'hot-pot-haricot': 430_000,
+
+              'cinnamon-latte': 350_000,
+              'cortado': 265_000,
+              'cappuccino': 310_000,
+              'latte': 325_000,
+              'popcorn-latte': 340_000,
+              'mocha': 365_000,
+              'cream-mocha': 375_000,
+
+              'cinnamon-ice-latte': 350_000,
+              'tonic-espresso': 330_000,
+              'didi-wine-brew': 360_000,
+              'affogato': 375_000,
+              'irish-ice-latte': 345_000,
+              'caramel-ice-latte': 345_000,
+              'ice-mocha': 365_000,
+              'coco-ice-latte': 355_000,
+              'ice-latte': 325_000,
+
+              'ice-chocolate': 305_000,
+              'masala-tea': 295_000,
+              'karak-tea': 295_000,
+              'mint-chocolate': 310_000,
+              'hot-chocolate': 305_000,
+
+              'saffron-tea': 195_000,
+              'eternal-herbal-tea': 225_000,
+              'charming-herbal-tea': 235_000,
+              'asheghaneh-herbal-tea': 235_000,
+              'shokraneh-herbal-tea': 235_000,
+
+              'pina-colada': 295_000,
+              'bloody': 340_000,
+              'martini': 297_000,
+              'miami-sunrise': 345_000,
+              'new-york-city': 335_000,
+              'big-bang': 355_000,
+              'lovers': 380_000,
+
+              'chocolate-twist': 215_000,
+              'swiss-bun-chocolate': 215_000,
+              'butter-croissant': 225_000,
+
+              'pina-colada-tart': 320_000,
+              'snickers-cake': 395_000,
+              'chocolate-raspberry-tart': 320_000,
+              'mango-mousse': 310_000,
+              'banoffee': 330_000,
+              'san-sebastian': 350_000,
+
+              'ice-cream-carrot': 360_000,
+              'pomo-berry': 380_000,
+              'sparkle': 395_000,
+              'orange-peach': 395_000,
+
+              'tropical-style': 325_000,
+              'berry-style': 335_000,
+              'margarita-style': 295_000,
+
+              'chocolate-milkshake': 445_000,
+              'coconut-milkshake': 430_000,
+              'cookie-milkshake': 455_000,
+              'popcorn-milkshake': 395_000,
+          }
+
           con = sqlite3.connect('db.sqlite3')
           cur = con.cursor()
+
+          total = cur.execute('SELECT COUNT(*) FROM menu_menuitem').fetchone()[0]
+          if total != 187:
+              raise SystemExit(f'Unexpected menu row count: {total}; expected 187')
+
+          changed = []
+          for slug, target in fixes.items():
+              rows = cur.execute(
+                  'SELECT id, name, english_name, price FROM menu_menuitem WHERE slug = ?',
+                  (slug,),
+              ).fetchall()
+              if len(rows) != 1:
+                  raise SystemExit(f'Expected one row for {slug}, got {len(rows)}: {rows}')
+              row = rows[0]
+              if row[3] != target:
+                  changed.append((slug, row[1], row[2], row[3], target))
+                  cur.execute('UPDATE menu_menuitem SET price = ? WHERE id = ?', (target, row[0]))
+
+          con.commit()
+
+          zero = cur.execute(
+              'SELECT COUNT(*) FROM menu_menuitem WHERE price = 0 OR price IS NULL'
+          ).fetchone()[0]
+          if zero != 0:
+              raise SystemExit(f'Zero-priced rows remain: {zero}')
+
+          print('TOTAL:', total)
+          print('CHANGED:', len(changed))
+          print('ZERO:', zero)
+          for slug, name, english, old, new in changed:
+              print(f'{slug} | {name} | {english} | {old:,} -> {new:,}')
+
           rows = cur.execute('''
               SELECT i.id, c.slug, c.name, i.slug, i.name, i.english_name, i.price
               FROM menu_menuitem i
               JOIN menu_category c ON c.id = i.category_id
               ORDER BY c.sort_order, i.sort_order, i.id
           ''').fetchall()
-          with open('menu_db_export.csv','w',encoding='utf-8-sig',newline='') as f:
-              w=csv.writer(f)
+          with open('menu_db_export.csv', 'w', encoding='utf-8-sig', newline='') as f:
+              w = csv.writer(f)
               w.writerow(['id','category_slug','category_name','item_slug','name','english_name','price'])
               w.writerows(rows)
-          print('ROWS:', len(rows))
+
           con.close()
           PY
 
-      - name: Commit export
+      - name: Commit corrected database
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add menu_db_export.csv
-          git commit -m 'Export current menu database for full price verification [skip ci]' || exit 0
+          git add -f db.sqlite3 menu_db_export.csv
+          git commit -m 'Correct DIDI menu prices from full live-menu video review [skip ci]' || exit 0
           git push origin HEAD:main
