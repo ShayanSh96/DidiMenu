@@ -1,0 +1,188 @@
+﻿id,category_slug,category_name,item_slug,name,english_name,price
+2,breakfast,صبحانه,new-mexico,نیو مکزیکو,New Mexico,420000
+3,breakfast,صبحانه,sunny-turkey,سانی ترکی,Sunny Turkey,590000
+4,breakfast,صبحانه,sweet-savory,سوییت ساووری,Sweet & Savory,630000
+5,breakfast,صبحانه,avo-supreme,آوو سوپریم,Avo Supreme,740000
+6,breakfast,صبحانه,hash-brown,هش براون,Hash Brown,590000
+7,breakfast,صبحانه,hot-pot-haricot,هات پات لوبیا,Hot Pot Haricot,420000
+8,breakfast,صبحانه,egg-brisket,اگ بریسکت,Egg Brisket,1260000
+9,breakfast,صبحانه,heaven-plate,هون پلیت,Heaven Plate,740000
+10,iranian-breakfast,صبحانه ایرانی,fried-egg,نیمرو,Fried Egg,390000
+11,iranian-breakfast,صبحانه ایرانی,omelet,املت,Omelet,390000
+12,iranian-breakfast,صبحانه ایرانی,sausage-omelet,املت ساسیج,Sausage Omelet,490000
+13,iranian-breakfast,صبحانه ایرانی,sausage-fried-egg,نیمرو ساسیج,Sausage Omelette,490000
+14,iranian-breakfast,صبحانه ایرانی,egg-fried-ghormeh,نیمرو قرمه,Egg Fried with Ghormeh,1260000
+15,hot-coffee,قهوه‌های گرم,cinnamon-latte,لاته سینامون,Cinnamon Latte,250000
+16,hot-coffee,قهوه‌های گرم,espresso,اسپرسو,Espresso,220000
+17,hot-coffee,قهوه‌های گرم,americano,آمریکانو,Americano,220000
+18,hot-coffee,قهوه‌های گرم,cortado,کورتادو,Cortado,260000
+19,hot-coffee,قهوه‌های گرم,cappuccino,کاپوچینو,Cappuccino,210000
+20,hot-coffee,قهوه‌های گرم,latte,لاته,Latte,220000
+21,hot-coffee,قهوه‌های گرم,popcorn-latte,لاته پاپکورن,Popcorn Latte,240000
+22,hot-coffee,قهوه‌های گرم,mocha,موکا,Mocha,250000
+23,hot-coffee,قهوه‌های گرم,cream-mocha,موکا با خامه,Cream Mocha,270000
+24,cold-coffee,قهوه‌های سرد,cinnamon-ice-latte,آیس لاته سینامون,Cinnamon Ice Latte,250000
+25,cold-coffee,قهوه‌های سرد,tonic-espresso,تونیک اسپرسو,Tonic Espresso,220000
+26,cold-coffee,قهوه‌های سرد,didi-wine-brew,دی‌دی واین برو,DIDI Wine Brew,250000
+27,cold-coffee,قهوه‌های سرد,affogato,آفوگاتو,Affogato,270000
+28,cold-coffee,قهوه‌های سرد,irish-ice-latte,آیس لاته آیریش,Irish Ice Latte,240000
+29,cold-coffee,قهوه‌های سرد,caramel-ice-latte,آیس لاته کارامل,Caramel Ice Latte,240000
+30,cold-coffee,قهوه‌های سرد,ice-mocha,آیس موکا,Ice Mocha,250000
+31,cold-coffee,قهوه‌های سرد,coco-ice-latte,آیس لاته نارگیل,Coco Ice Latte,250000
+32,cold-coffee,قهوه‌های سرد,ice-latte,آیس لاته,Ice Latte,220000
+33,cold-coffee,قهوه‌های سرد,ice-americano,آیس آمریکانو,Ice Americano,220000
+34,hot-drinks,نوشیدنی‌های گرم,ice-chocolate,آیس چاکلت,Ice Chocolate,200000
+35,hot-drinks,نوشیدنی‌های گرم,masala-tea,چای ماسالا,Masala Tea,250000
+36,hot-drinks,نوشیدنی‌های گرم,karak-tea,چای کرک,Karak Tea,250000
+37,hot-drinks,نوشیدنی‌های گرم,mint-chocolate,هات چاکلت نعنایی,Mint Chocolate,210000
+38,hot-drinks,نوشیدنی‌های گرم,hot-chocolate,هات چاکلت,Hot Chocolate,200000
+39,tea-herbal,چای و دمنوش,black-tea,چای سیاه,Black Tea,160000
+40,tea-herbal,چای و دمنوش,saffron-tea,چای زعفران,Saffron Tea,190000
+41,tea-herbal,چای و دمنوش,eternal-herbal-tea,دمنوش جاودانه,Eternal Herbal Tea,220000
+42,tea-herbal,چای و دمنوش,charming-herbal-tea,دمنوش دلبرانه,Charming Herbal Tea,220000
+43,tea-herbal,چای و دمنوش,asheghaneh-herbal-tea,دمنوش عاشقانه,Asheghaneh Herbal Tea,220000
+44,tea-herbal,چای و دمنوش,shokraneh-herbal-tea,دمنوش شکرانه,Shokraneh Herbal Tea,220000
+45,tea-herbal,چای و دمنوش,shahaneh-herbal-tea,دمنوش شاهانه,Shahaneh Herbal Tea,240000
+46,tea-herbal,چای و دمنوش,jananeh-herbal-tea,دمنوش جانانه,Jananeh Herbal Tea,220000
+47,mocktails,ماکتیل‌ها,pina-colada,پیناکولادا,Pina Colada,250000
+48,mocktails,ماکتیل‌ها,bloody,بلادی,Bloody,240000
+49,mocktails,ماکتیل‌ها,martini,مارتینی,Martini,250000
+50,mocktails,ماکتیل‌ها,miami-sunrise,میامی سانرایز,Miami Sunrise,240000
+51,mocktails,ماکتیل‌ها,new-york-city,نیویورک سیتی,New York City,220000
+52,mocktails,ماکتیل‌ها,big-bang,بیگ بنگ,Big Bang,250000
+53,mocktails,ماکتیل‌ها,lovers,لاورز,Lovers,280000
+54,mocktails,ماکتیل‌ها,khiar-sekanjebin,خیار سکنجبین,Khiar Sekanjebin,240000
+55,bakery,نان و شیرینی,chocolate-twist,چاکلت توییست,Chocolate Twist,210000
+56,bakery,نان و شیرینی,swiss-bun-chocolate,بن سوئیسی با سس شکلات,Swiss Bun with Chocolate,210000
+57,bakery,نان و شیرینی,chocolate-walnut-cookie,کوکی شکلات گردو,Chocolate Walnut Cookie,180000
+58,bakery,نان و شیرینی,double-chocolate-cookie,کوکی دبل چاکلت,Double Chocolate Cookie,180000
+59,bakery,نان و شیرینی,oatmeal-cranberry-cookie,کوکی رژیمی اوتمیل و کرن‌بری,Oatmeal and Cranberry Diet Cookie,180000
+60,bakery,نان و شیرینی,chocolate-croissant,کروسان شکلاتی,Chocolate Croissant,285000
+61,bakery,نان و شیرینی,butter-croissant,کروسان کره‌ای ساده,Butter Croissant,220000
+62,desserts,دسر و شیرینی,pina-colada-tart,تارت پیناکولادا,Pina Colada Tart,220000
+63,desserts,دسر و شیرینی,snickers-cake,کیک اسنیکرز,Snickers Cake,280000
+64,desserts,دسر و شیرینی,chocolate-raspberry-tart,تارت شکلات رزبری,Chocolate & Raspberry Tart,220000
+65,desserts,دسر و شیرینی,mango-mousse,موس انبه,Mango Mousse,210000
+66,desserts,دسر و شیرینی,banoffee,بانوفی,Banoffee,220000
+67,desserts,دسر و شیرینی,three-milk-pistachio-cake,کیک سه شیر پسته,Three Milk Pistachio Cake,420000
+68,desserts,دسر و شیرینی,san-sebastian,چیزکیک سن سباستین,San Sebastian,280000
+69,desserts,دسر و شیرینی,caramel-filbert-tart,تارت کارامل فندق,Caramel & Filbert Tart,300000
+70,desserts,دسر و شیرینی,pistachio-tart,تارت پسته,Pistachio Tart,440000
+71,natural-drinks,آبمیوه‌های طبیعی,ice-cream-carrot,آب هویج بستنی,Ice Cream Carrot,250000
+72,natural-drinks,آبمیوه‌های طبیعی,pomo-berry,پومو بری,Pomo Berry,220000
+73,natural-drinks,آبمیوه‌های طبیعی,sparkle,اسپارکل,Sparkle,220000
+74,natural-drinks,آبمیوه‌های طبیعی,orange-peach,اورنج پیچ,Orange Peach,250000
+75,smoothies,اسموتی‌ها,faloode-bastani,فالوده بستنی مغزدار,Faloode Bastani,420000
+76,smoothies,اسموتی‌ها,american-style,امریکن استایل,American Style,315000
+77,smoothies,اسموتی‌ها,tropical-style,تروپیکال استایل,Tropical Style,220000
+78,smoothies,اسموتی‌ها,berry-style,بری استایل,Berry Style,220000
+79,smoothies,اسموتی‌ها,margarita-style,مارگاریتا استایل,Margarita Style,280000
+80,milkshakes,میلک‌شیک‌ها,chocolate-milkshake,چاکلت شیک,Chocolate Milkshake,440000
+81,milkshakes,میلک‌شیک‌ها,coconut-milkshake,کوکو شیک,Coconut Milkshake,420000
+82,milkshakes,میلک‌شیک‌ها,cookie-milkshake,کوکی شیک,Cookie Milkshake,450000
+83,milkshakes,میلک‌شیک‌ها,popcorn-milkshake,پاپ شیک,Popcorn Milkshake,290000
+84,milkshakes,میلک‌شیک‌ها,pro-milk-shake,پرو شیک,Pro Milk Shake,480000
+85,milkshakes,میلک‌شیک‌ها,nutty-milk-shake,ناتی شیک,Nutty Milk Shake,460000
+86,fizzy-bar,فیزی بار,texas-soda,تگزاس سودا,Texas Soda,118000
+87,fizzy-bar,فیزی بار,soda-lemon,سودا لیمو,Soda,108000
+88,fizzy-bar,فیزی بار,rogers-cola,راجرز کولا,Rogers Cola,128000
+89,fizzy-bar,فیزی بار,apple-soda,اپل سودا,Apple Soda,118000
+90,fizzy-bar,فیزی بار,classic-beer,مالت کلاسیک,Classic Beer,170000
+91,fizzy-bar,فیزی بار,airish-beer,مالت آیریش,Airish Beer,200000
+92,fizzy-bar,فیزی بار,coca-ice-cream,کوکا بستنی,Coca Ice Cream,180000
+93,fizzy-bar,فیزی بار,grape-beer,مالت انگور,Grape Beer,220000
+94,fizzy-bar,فیزی بار,lemonade,لیموناد کلاسیک,Lemonade,190000
+95,fizzy-bar,فیزی بار,classic-mojito,موهیتو کلاسیک,Mojito,175000
+96,fizzy-bar,فیزی بار,american-mojito,امریکن موهیتو,American Mojito,225000
+186,fizzy-bar,فیزی بار,persian-lemonade,پرشین لیموناد,Persian Lemonade,230000
+97,bar-addons,افزودنی بار,saffron-syrup,سیروپ زعفران,Saffron Syrup,50000
+98,bar-addons,افزودنی بار,chocolate-syrup,سیروپ شکلات,Chocolate Syrup,50000
+99,bar-addons,افزودنی بار,coconut-syrup,سیروپ نارگیل,Coconut Syrup,50000
+100,bar-addons,افزودنی بار,hazelnut-syrup,سیروپ فندق,Hazelnut Syrup,50000
+101,bar-addons,افزودنی بار,vanilla-syrup,سیروپ وانیل,Vanilla Syrup,50000
+102,bar-addons,افزودنی بار,creamy-side,ساید خامه قنادی,Creamy Side,75000
+103,bar-addons,افزودنی بار,shot-of-milk,شات شیر,Shot of Milk,60000
+104,brewed-coffee,قهوه‌های دمی,turkish-coffee,قهوه ترک,Turkish Coffee,180000
+105,brewed-coffee,قهوه‌های دمی,chemex,کمکس,Chemex,495000
+106,brewed-coffee,قهوه‌های دمی,v60,وی ۶۰,V60,495000
+107,brewed-coffee,قهوه‌های دمی,cold-brew,کلد برو,Cold Brew,320000
+108,brewed-coffee,قهوه‌های دمی,clever,کلور,Clever,495000
+109,brewed-coffee,قهوه‌های دمی,regular-coffee,رگولار امریکن استایل,Regular Coffee,180000
+110,appetizers,پیش‌غذا,cucumber-yogurt,آب دوغ خیار,Cucumber Yogurt,680000
+111,appetizers,پیش‌غذا,caesar-salad,سالاد سزار,Caesar Salad,750000
+112,appetizers,پیش‌غذا,avocado-salad,سالاد آووکادو,Avocado Salad,850000
+113,appetizers,پیش‌غذا,season-salad,سیزن سالاد,Season Salad,490000
+114,appetizers,پیش‌غذا,fries,فرنچ فرایز,Fries,485000
+115,appetizers,پیش‌غذا,chicken-wings-plate,بشقاب بال,Chicken Wings Plate,540000
+116,appetizers,پیش‌غذا,classic-hummus,حمص کلاسیک,Classic Hummus,410000
+117,pizza-xl,پیتزا ایکس‌لارج,xl-chicken-pesto-pizza,پیتزا چیکن پستو,Chicken Pesto Pizza,1230000
+118,pizza-xl,پیتزا ایکس‌لارج,xl-special-pizza,پیتزا اسپشیال,Special Pizza,1450000
+119,pizza-xl,پیتزا ایکس‌لارج,xl-pulled-beef-pizza,پیتزا پولد بیف,Pulled Beef Pizza,1650000
+120,pizza-xl,پیتزا ایکس‌لارج,xl-bolognese-pizza,پیتزا بلونز,Bolognese Pizza,1250000
+121,pizza-xl,پیتزا ایکس‌لارج,xl-garlic-steak-pizza,پیتزا سیر و استیک,Garlic & Steak Pizza,1480000
+122,pizza-xl,پیتزا ایکس‌لارج,xl-pepperoni-pizza,پیتزا پپرونی,Pepperoni Pizza,1190000
+123,pizza-xl,پیتزا ایکس‌لارج,xl-chicken-spinach-pizza,پیتزا چیکن اسفناج,Chicken Spinach Pizza,1190000
+124,pizza-xl,پیتزا ایکس‌لارج,xl-bacon-spinach-pizza,پیتزا بیکن اسفناج,Bacon Spinach Pizza,1290000
+125,pizza-xl,پیتزا ایکس‌لارج,xl-margherita-pizza,پیتزا مارگاریتا,Margherita Pizza,790000
+126,pizza-xl,پیتزا ایکس‌لارج,xl-parmigiano-pizza,پیتزا کرم بیکن,Parmigiano Pizza,1490000
+127,pizza-large,پیتزا لارج,large-chicken-pesto-pizza,پیتزا چیکن پستو,Chicken Pesto Pizza,730000
+128,pizza-large,پیتزا لارج,large-special-pizza,پیتزا اسپشیال,Special Pizza,890000
+129,pizza-large,پیتزا لارج,large-pulled-beef-pizza,پیتزا پولد بیف,Pulled Beef Pizza,890000
+130,pizza-large,پیتزا لارج,large-bolognese-pizza,پیتزا بلونز,Bolognese Pizza,790000
+131,pizza-large,پیتزا لارج,large-garlic-steak-pizza,پیتزا سیر و استیک,Garlic and Steak Pizza,840000
+132,pizza-large,پیتزا لارج,large-pepperoni-pizza,پیتزا پپرونی,Pepperoni Pizza,690000
+133,pizza-large,پیتزا لارج,large-chicken-spinach-pizza,پیتزا چیکن اسفناج,Chicken Spinach Pizza,640000
+134,pizza-large,پیتزا لارج,large-bacon-spinach-pizza,پیتزا بیکن اسفناج,Bacon Spinach Pizza,720000
+135,pizza-large,پیتزا لارج,large-margherita-pizza,پیتزا مارگاریتا,Margherita Pizza,590000
+136,pizza-large,پیتزا لارج,large-bacon-cream-pizza,پیتزا کرم بیکن,Bacon Cream Pizza,890000
+137,pasta,پاستا,beef-lasagna,لازانیا بلونز,Beef Lasagna,910000
+138,pasta,پاستا,pulled-beef-lasagna,لازانیا پولد بیف,Pulled Beef Lasagna,1100000
+139,pasta,پاستا,chicken-spinach-lasagna,لازانیا چیکن اسفناج,Chicken & Spinach Lasagna,890000
+140,pasta,پاستا,chicken-alfredo-pasta,پاستا چیکن آلفردو,Chicken Alfredo Pasta,750000
+141,steak,استیک,blaze-butter-steaks,استیک بلیز اند باتر,Blaze & Butter Steaks,1980000
+142,steak,استیک,entrecote-steak,استیک انترکوت,Entrecote Steak,2190000
+143,steak,استیک,ohio-steak,استیک اوهایو,Ohio Steak,3950000
+144,steak,استیک,scottish-steak,استیک اسکاتلندی,Scottish Steak,2300000
+145,steak,استیک,vegas-steak,استیک وگاس,Vegas Steak,6000000
+146,steak,استیک,dakota-chicken,دکوتا چیکن,Dakota Chicken,960000
+147,king-burger,کینگ برگر,king-rib-burger,دنده برگر,Rib Burger,1430000
+148,king-burger,کینگ برگر,king-chicken-burger,چیکن برگر کلاسیک,Chicken Burger,740000
+149,king-burger,کینگ برگر,king-spicy-chicken-burger,چیکن برگر اسپایسی,Spicy Chicken Burger,760000
+150,king-burger,کینگ برگر,king-american-burger,کینگ برگر آمریکایی,American King Burger,1150000
+151,king-burger,کینگ برگر,king-bone-marrow-burger,بن مارو برگر,Bone Marrow Burger,1490000
+152,king-burger,کینگ برگر,king-sausage-burger,ساسیج برگر,Sausage Burger,1295000
+153,king-burger,کینگ برگر,king-caramelized-burger,کاراملایزد برگر,Caramelized Burger,1210000
+154,king-burger,کینگ برگر,king-spicy-camembert-burger,بوفالو کممبر برگر,Spicy Camembert Burger,1295000
+155,king-burger,کینگ برگر,king-mushroom-burger,ماشروم برگر,Mushroom Burger,1150000
+156,king-burger,کینگ برگر,king-halloumi-mushroom-burger,هالومی ماشروم برگر,Halloumi Mushroom Burger,1295000
+157,king-burger,کینگ برگر,king-mexicano-burger,مکزیکانو برگر,Mexicano Burger,1270000
+158,burger-180,برگر ۱۸۰ گرمی,180-sausage-burger,ساسیج برگر,Sausage Burger,1059000
+159,burger-180,برگر ۱۸۰ گرمی,180-spicy-camembert-burger,بوفالو کممبر برگر,Spicy Camembert Burger,1059000
+160,burger-180,برگر ۱۸۰ گرمی,180-halloumi-mushroom-burger,هالومی ماشروم برگر,Mushroom Halloumi Burger,1059000
+161,burger-180,برگر ۱۸۰ گرمی,180-bone-marrow-burger,بن مارو برگر,Bone Marrow Burger,1290000
+162,burger-180,برگر ۱۸۰ گرمی,180-caramelized-burger,کاراملایزد برگر,Caramelized Burger,950000
+163,burger-180,برگر ۱۸۰ گرمی,180-mushroom-burger,ماشروم برگر,Mushroom Burger,990000
+164,burger-180,برگر ۱۸۰ گرمی,180-american-king-burger,کینگ برگر آمریکایی,American King Burger,890000
+165,burger-180,برگر ۱۸۰ گرمی,180-mexicano-burger,مکزیکانو برگر,Mexicano Burger,1070000
+166,burger-addons,افزودنی برگر,addon-pepperoni,پپرونی,Pepperoni,190000
+167,burger-addons,افزودنی برگر,addon-pulled-beef,پولد بیف,Pulled Beef,350000
+168,burger-addons,افزودنی برگر,addon-grilled-chicken,سینه مرغ گریل,Grilled Chicken Breast,130000
+169,burger-addons,افزودنی برگر,addon-gouda-slice,پنیر گودا ورقه‌ای,Gouda Slice,50000
+170,burger-addons,افزودنی برگر,addon-halloumi-cheese,پنیر هالومی,Halloumi Cheese,125000
+171,burger-addons,افزودنی برگر,addon-jalapeno,هالوپینو,Jalapeno,35000
+172,burger-addons,افزودنی برگر,addon-camembert-cheese,پنیر کممبر,Camembert Cheese,180000
+173,burger-addons,افزودنی برگر,addon-fried-egg,نیمرو,Fried Egg,65000
+174,burger-addons,افزودنی برگر,addon-bacon,بیکن,Bacon,200000
+176,burger-addons,افزودنی برگر,addon-bone-marrow,بن مارو,Bone Marrow,460000
+187,burger-addons,افزودنی برگر,addon-sausage,سوسیس,Sausage,180000
+188,burger-addons,افزودنی برگر,addon-caramelized-onion,پیاز کاراملی,Caramelized Onion,40000
+189,burger-addons,افزودنی برگر,addon-red-onion,پیاز بنفش,Red Onion,20000
+177,plates,پلیت,sausage-sandwich,ساندویچ سوسیس,Sausage Sandwich,980000
+178,plates,پلیت,sausage-plate,بشقاب سوسیس,Sausage Plate,950000
+179,plates,پلیت,buffalo-plate,بوفالو پلیت,Buffalo Plate,1380000
+180,plates,پلیت,taco,تاکو,Taco,1250000
+181,plates,پلیت,brisket,بریسکت,Brisket,1630000
+182,plates,پلیت,cuban-brisket,بریسکت کوبایی,Cuban Brisket,1680000
+183,plates,پلیت,cuban-chicken,چیکن کوبایی,Cuban Chicken,890000
+184,plates,پلیت,cuban-pulled-beef,پولد بیف کوبایی,Cuban Pulled Beef,990000
+185,plates,پلیت,cowboy,کابوی دیش,Cowboy,3980000
