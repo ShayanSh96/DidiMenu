@@ -7,17 +7,23 @@ def welcome(request):
     return render(request, "menu/welcome.html")
 
 
+def story(request):
+    return render(request, "menu/under_construction.html", {"page_title": "داستان ما"})
+
+
+def family(request):
+    return render(request, "menu/under_construction.html", {"page_title": "خانواده‌ی دیدی"})
+
+
 def menu_home(request):
     categories = Category.objects.filter(is_active=True)
     selected_slug = request.GET.get("category")
 
-    # First visit to the menu shows all categories.
     if not selected_slug:
         return render(request, "menu/categories.html", {"categories": categories})
 
     selected_category = categories.filter(slug=selected_slug).first()
 
-    # Invalid/removed category: return to the category selector.
     if selected_category is None:
         return render(request, "menu/categories.html", {"categories": categories})
 
