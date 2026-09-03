@@ -12,7 +12,7 @@ def story(request):
 
 
 def family(request):
-    return render(request, "menu/under_construction.html", {"page_title": "خانواده‌ی دیدی"})
+    return render(request, "menu/family.html")
 
 
 def menu_home(request):
