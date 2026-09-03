@@ -8,7 +8,7 @@ def welcome(request):
 
 
 def story(request):
-    return render(request, "menu/under_construction.html", {"page_title": "داستان ما"})
+    return render(request, "menu/story.html")
 
 
 def family(request):
