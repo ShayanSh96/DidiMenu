@@ -7,20 +7,11 @@
     <meta name="theme-color" content="#10203f">
     <title>DIDI | Menu</title>
     <link rel="stylesheet" href="{% static 'menu/style.css' %}">
-    <style>
-        .hero__brand{display:inline-flex;flex-direction:column;align-items:center;direction:ltr}
-        .hero__space{margin-top:12px;font-size:10px;font-weight:700;letter-spacing:7px;text-indent:7px;opacity:.82}
-        .hero__line{margin-top:18px}
-        @media(max-width:620px){.hero__space{font-size:9px;letter-spacing:6px;text-indent:6px}}
-    </style>
 </head>
 <body>
     <main class="page-shell">
         <header class="hero">
-            <div class="hero__brand" aria-label="DIDI SPACE">
-                <div class="hero__mark">DIDI</div>
-                <div class="hero__space">SPACE</div>
-            </div>
+            <img class="hero__brand-logo" src="/media/branding/artboard-7.png" alt="DIDI SPACE">
             <div class="hero__line"></div>
             <p class="hero__subtitle">CAFE & RESTAURANT</p>
             <h1>منوی دیدی</h1>
@@ -36,8 +27,7 @@
 
                 <nav class="category-strip" id="categoryStrip">
                     {% for category in categories %}
-                        <a class="category-card{% if selected_category and category.pk == selected_category.pk %} category-card--active{% endif %}"
-                           href="?category={{ category.slug }}#products">
+                        <a class="category-card{% if selected_category and category.pk == selected_category.pk %} category-card--active{% endif %}" href="?category={{ category.slug }}#products">
                             <div class="category-card__image-wrap">
                                 {% if category.image %}
                                     <img class="category-card__image" src="{{ category.image.url }}" alt="{{ category.name }}" loading="lazy">
@@ -86,10 +76,7 @@
                                 </div>
                             </a>
                         {% empty %}
-                            <div class="empty-state">
-                                <strong>DIDI</strong>
-                                <p>محصولات این دسته به‌زودی اضافه می‌شوند.</p>
-                            </div>
+                            <div class="empty-state"><strong>DIDI</strong><p>محصولات این دسته به‌زودی اضافه می‌شوند.</p></div>
                         {% endfor %}
                     </div>
                 </section>
@@ -99,7 +86,7 @@
         {% endif %}
 
         <footer class="site-footer">
-            <span>DIDI</span>
+            <img class="site-footer__logo" src="/media/branding/artboard-7.png" alt="DIDI SPACE">
             <p>CAFE & RESTAURANT</p>
         </footer>
     </main>
@@ -108,18 +95,9 @@
         (function () {
             const strip = document.getElementById('categoryStrip');
             if (!strip) return;
-
             const active = strip.querySelector('.category-card--active');
             if (!active) return;
-
-            const centerActiveCategory = () => {
-                active.scrollIntoView({
-                    behavior: 'auto',
-                    block: 'nearest',
-                    inline: 'center'
-                });
-            };
-
+            const centerActiveCategory = () => active.scrollIntoView({behavior:'auto',block:'nearest',inline:'center'});
             requestAnimationFrame(() => requestAnimationFrame(centerActiveCategory));
         })();
     </script>
