@@ -37,7 +37,8 @@ class MenuItem(models.Model):
         verbose_name="نام انگلیسی",
     )
     slug = models.SlugField(max_length=180, unique=True, verbose_name="اسلاگ")
-    description = models.TextField(blank=True, verbose_name="توضیحات")
+    description = models.TextField(blank=True, verbose_name="توضیحات فارسی")
+    description_en = models.TextField(blank=True, verbose_name="توضیحات انگلیسی")
     price = models.PositiveIntegerField(verbose_name="قیمت")
     image = models.ImageField(
         upload_to="menu/items/%Y/%m/",
