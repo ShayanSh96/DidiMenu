@@ -16,6 +16,10 @@
         <article class="detail-card">
             {% if item.image %}
                 <img class="detail-image" src="{{ item.image.url }}" alt="{{ item.display_name }}">
+            {% else %}
+                <div class="detail-image-placeholder">
+                    <img src="/media/branding/Artboard%209.png" alt="DIDI SPACE">
+                </div>
             {% endif %}
 
             <h1>{{ item.display_name }}</h1>
