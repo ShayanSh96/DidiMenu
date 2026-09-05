@@ -32,10 +32,21 @@ class MenuItemAdmin(admin.ModelAdmin):
         "is_featured",
         "sort_order",
     )
-    search_fields = ("name", "english_name", "description")
+    search_fields = ("name", "english_name", "description", "description_en")
     prepopulated_fields = {"slug": ("name",)}
     autocomplete_fields = ("category",)
     ordering = ("category__sort_order", "sort_order", "name")
+    fieldsets = (
+        ("اطلاعات اصلی", {
+            "fields": ("category", "name", "english_name", "slug", "price", "image")
+        }),
+        ("توضیحات دو زبانه", {
+            "fields": ("description", "description_en")
+        }),
+        ("وضعیت نمایش", {
+            "fields": ("is_available", "is_featured", "sort_order")
+        }),
+    )
 
 
 admin.site.site_header = "DIDI Menu Admin"
