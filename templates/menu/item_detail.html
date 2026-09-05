@@ -1,29 +1,31 @@
 {% load static menu_extras %}
 <!doctype html>
-<html lang="fa" dir="rtl">
+<html lang="{% if is_en %}en{% else %}fa{% endif %}" dir="{% if is_en %}ltr{% else %}rtl{% endif %}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ item.name }} | DIDI</title>
+    <title>{{ item.display_name }} | DIDI</title>
     <link rel="stylesheet" href="{% static 'menu/style.css' %}">
+    <style>.detail-page{position:relative;padding-top:70px}.detail-language{position:absolute;top:18px;left:22px}</style>
 </head>
 <body>
     <main class="page-shell detail-page">
-        <a class="back-link" href="{% url 'menu:home' %}">بازگشت به منو</a>
+        <div class="detail-language">{% include "menu/_lang_switch.html" with %}</div>
+        <a class="back-link" href="{% url 'menu:home' %}?category={{ item.category.slug }}&lang={{ lang }}">{% if is_en %}Back to menu{% else %}بازگشت به منو{% endif %}</a>
 
         <article class="detail-card">
             {% if item.image %}
-                <img class="detail-image" src="{{ item.image.url }}" alt="{{ item.name }}">
+                <img class="detail-image" src="{{ item.image.url }}" alt="{{ item.display_name }}">
             {% endif %}
 
-            <h1>{{ item.name }}</h1>
-            {% if item.english_name %}<p class="english-name">{{ item.english_name }}</p>{% endif %}
-            {% if item.description %}<p class="detail-description">{{ item.description }}</p>{% endif %}
+            <h1>{{ item.display_name }}</h1>
+            {% if item.secondary_name %}<p class="english-name">{{ item.secondary_name }}</p>{% endif %}
+            {% if item.display_description %}<p class="detail-description">{{ item.display_description }}</p>{% endif %}
 
             {% if item.is_available %}
-                <div class="detail-price">{{ item.price|price_format }} تومان</div>
+                <div class="detail-price">{{ item.price|price_format }} {% if is_en %}Toman{% else %}تومان{% endif %}</div>
             {% else %}
-                <div class="detail-price unavailable">ناموجود</div>
+                <div class="detail-price unavailable">{% if is_en %}Sold Out{% else %}اتمام موجودی{% endif %}</div>
             {% endif %}
         </article>
     </main>
