@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fa" dir="rtl">
+<html lang="{% if is_en %}en{% else %}fa{% endif %}" dir="{% if is_en %}ltr{% else %}rtl{% endif %}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -12,7 +12,7 @@
 @font-face{font-family:'DAMOON';src:url('/media/fonts/DAMOON-Bold.otf') format('opentype');font-weight:700;font-style:normal;font-display:swap}
 *{box-sizing:border-box}
 html,body{margin:0;width:100%;min-height:100%}
-body{font-family:'DAMOON',Tahoma,Arial,sans-serif;background:#111;color:#10203f}
+body{font-family:'DAMOON',Tahoma,Arial,sans-serif;background:#111;color:#10203f}.language-switch{position:absolute;top:16px;left:18px;z-index:5;display:flex;align-items:center;gap:7px;padding:7px 10px;border:1px solid rgba(255,255,255,.28);border-radius:999px;background:rgba(8,18,40,.42);backdrop-filter:blur(10px);direction:ltr;font-family:Arial,sans-serif;color:#fff}.language-switch__item{display:flex;align-items:center;gap:4px;color:rgba(255,255,255,.7);font-size:10px;font-weight:700;text-decoration:none}.language-switch__item.is-active{color:#fff}.language-switch__flag{font-size:15px}.language-switch__sep{color:rgba(255,255,255,.35)}
 .landing{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:24px 16px;background:#111}
 .landing__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;background:#111}
 .landing__overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(rgba(8,12,18,.42),rgba(8,12,18,.52))}
@@ -29,19 +29,20 @@ body{font-family:'DAMOON',Tahoma,Arial,sans-serif;background:#111;color:#10203f}
 </head>
 <body>
 <main class="landing">
+{% include "menu/_lang_switch.html" %}
 <video class="landing__video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
 <source src="/media/menu/didi-home.mp4" type="video/mp4">
 </video>
 <div class="landing__overlay" aria-hidden="true"></div>
-<section class="panel" aria-label="ورود به بخش‌های دیدی">
+<section class="panel" aria-label="{% if is_en %}DIDI navigation{% else %}ورود به بخش‌های دیدی{% endif %}">
 <div class="brand" aria-label="DIDI SPACE">
 <img src="/media/branding/Artboard%208.png" alt="DIDI SPACE">
 </div>
 <nav class="nav-links">
-<a class="nav-link" href="{% url 'menu:categories' %}">منو</a>
-<a class="nav-link" href="{% url 'menu:story' %}">داستان ما</a>
-<span class="nav-link nav-link--muted">رویدادها</span>
-<a class="nav-link" href="{% url 'menu:family' %}">خانواده‌ی دیدی</a>
+<a class="nav-link" href="{% url 'menu:categories' %}?lang={{ lang }}">{% if is_en %}Menu{% else %}منو{% endif %}</a>
+<a class="nav-link" href="{% url 'menu:story' %}?lang={{ lang }}">{% if is_en %}Our Story{% else %}داستان ما{% endif %}</a>
+<span class="nav-link nav-link--muted">{% if is_en %}Events{% else %}رویدادها{% endif %}</span>
+<a class="nav-link" href="{% url 'menu:family' %}?lang={{ lang }}">{% if is_en %}DIDI Family{% else %}خانواده‌ی دیدی{% endif %}</a>
 </nav>
 </section>
 </main>
