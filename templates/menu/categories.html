@@ -1,6 +1,6 @@
 {% load static %}
 <!doctype html>
-<html lang="fa" dir="rtl">
+<html lang="{% if is_en %}en{% else %}fa{% endif %}" dir="{% if is_en %}ltr{% else %}rtl{% endif %}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -10,7 +10,7 @@
     <style>
         body{margin:0;background:#f5f1e9;color:#10203f}
         .category-page{min-height:100vh;background:#f5f1e9}
-        .category-page__hero{padding:30px 20px 26px;text-align:center;background:#10203f;color:#f5f1e9}
+        .category-page__hero{position:relative;padding:30px 20px 26px;text-align:center;background:#10203f;color:#f5f1e9}
         .didi-wordmark{display:block;width:min(58vw,240px);height:auto;margin:0 auto 18px}
         .category-page__title{margin:0 0 7px;font-size:24px;font-weight:700;color:#f5f1e9}
         .category-page__subtitle{margin:0;font-size:13px;color:rgba(245,241,233,.72)}
@@ -30,28 +30,29 @@
 <body>
 <main class="category-page">
     <header class="category-page__hero">
+        {% include "menu/_lang_switch.html" %}
         <img class="didi-wordmark" src="/media/branding/Artboard%207.png" alt="DIDI SPACE">
-        <h1 class="category-page__title">منو</h1>
-        <p class="category-page__subtitle">دسته‌بندی مورد نظرت رو انتخاب کن</p>
+        <h1 class="category-page__title">{% if is_en %}Menu{% else %}منو{% endif %}</h1>
+        <p class="category-page__subtitle">{% if is_en %}Choose a category{% else %}دسته‌بندی مورد نظرت رو انتخاب کن{% endif %}</p>
     </header>
 
     <section class="category-page__content">
         <div class="category-grid">
             {% for category in categories %}
-                <a class="top-category" href="{% url 'menu:home' %}?category={{ category.slug }}">
+                <a class="top-category" href="{% url 'menu:home' %}?category={{ category.slug }}&lang={{ lang }}">
                     {% if category.image %}
-                        <img src="{{ category.image.url }}" alt="{{ category.name }}">
+                        <img src="{{ category.image.url }}" alt="{{ category.display_name }}">
                     {% else %}
                         <div class="top-category__placeholder">DIDI</div>
                     {% endif %}
-                    <span class="top-category__title">{{ category.name }}</span>
+                    <span class="top-category__title">{{ category.display_name }}</span>
                 </a>
             {% empty %}
-                <p>دسته‌بندی فعالی وجود ندارد.</p>
+                <p>{% if is_en %}No active categories are available.{% else %}دسته‌بندی فعالی وجود ندارد.{% endif %}</p>
             {% endfor %}
         </div>
-        <a class="category-page__back" href="{% url 'menu:welcome' %}">بازگشت به صفحه اصلی</a>
-        <p class="category-page__tax">۱۰ درصد مالیات روی فاکتور شما محاسبه خواهد شد</p>
+        <a class="category-page__back" href="{% url 'menu:welcome' %}?lang={{ lang }}">{% if is_en %}Back to home{% else %}بازگشت به صفحه اصلی{% endif %}</a>
+        <p class="category-page__tax">{% if is_en %}10% tax will be added to your bill{% else %}۱۰ درصد مالیات روی فاکتور شما محاسبه خواهد شد{% endif %}</p>
     </section>
 </main>
 </body>
