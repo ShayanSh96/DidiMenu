@@ -117,6 +117,28 @@
                 requestAnimationFrame(() => requestAnimationFrame(centerActiveCategory));
             }
 
+            document.querySelectorAll('.category-card').forEach((card) => {
+                card.addEventListener('click', function (event) {
+                    if (
+                        event.button !== 0 ||
+                        event.metaKey ||
+                        event.ctrlKey ||
+                        event.shiftKey ||
+                        event.altKey
+                    ) {
+                        return;
+                    }
+
+                    const current = new URL(window.location.href);
+                    if (!current.searchParams.has('category')) {
+                        return;
+                    }
+
+                    event.preventDefault();
+                    window.location.replace(card.href);
+                });
+            });
+
             document.querySelectorAll('.menu-card').forEach((card) => {
                 card.addEventListener('click', function (event) {
                     if (
