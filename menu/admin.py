@@ -17,6 +17,7 @@ class CategoryAdmin(admin.ModelAdmin):
 class MenuItemAdmin(admin.ModelAdmin):
     list_display = (
         "name",
+        "english_name",
         "category",
         "price",
         "is_available",
@@ -24,7 +25,13 @@ class MenuItemAdmin(admin.ModelAdmin):
         "sort_order",
     )
     list_filter = ("category", "is_available", "is_featured")
-    list_editable = ("price", "is_available", "is_featured", "sort_order")
+    list_editable = (
+        "english_name",
+        "price",
+        "is_available",
+        "is_featured",
+        "sort_order",
+    )
     search_fields = ("name", "english_name", "description")
     prepopulated_fields = {"slug": ("name",)}
     autocomplete_fields = ("category",)
