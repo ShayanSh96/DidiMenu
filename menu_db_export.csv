@@ -10,8 +10,8 @@
 10,iranian-breakfast,صبحانه ایرانی,fried-egg,نیمرو,Fried Egg,390000
 11,iranian-breakfast,صبحانه ایرانی,omelet,املت,Omelet,390000
 12,iranian-breakfast,صبحانه ایرانی,sausage-omelet,املت ساسیج,Sausage Omelet,490000
-13,iranian-breakfast,صبحانه ایرانی,sausage-fried-egg,نیمرو ساسیج,Sausage Omelette,490000
-14,iranian-breakfast,صبحانه ایرانی,egg-fried-ghormeh,نیمرو قرمه,Egg Fried with Ghormeh,1260000
+13,iranian-breakfast,صبحانه ایرانی,sausage-fried-egg,نیمرو ساسیج,Sausage Fried Egg,490000
+14,iranian-breakfast,صبحانه ایرانی,egg-fried-ghormeh,نیمرو قرمه,Fried Egg with Ghormeh,1260000
 15,hot-coffee,قهوه‌های گرم,cinnamon-latte,لاته سینامون,Cinnamon Latte,350000
 16,hot-coffee,قهوه‌های گرم,espresso,اسپرسو,Espresso,220000
 17,hot-coffee,قهوه‌های گرم,americano,آمریکانو,Americano,220000
@@ -84,11 +84,11 @@
 84,milkshakes,میلک‌شیک‌ها,pro-milk-shake,پرو شیک,Pro Milk Shake,480000
 85,milkshakes,میلک‌شیک‌ها,nutty-milk-shake,ناتی شیک,Nutty Milk Shake,460000
 86,fizzy-bar,فیزی بار,texas-soda,تگزاس سودا,Texas Soda,118000
-87,fizzy-bar,فیزی بار,soda-lemon,سودا لیمو,Soda,108000
+87,fizzy-bar,فیزی بار,soda-lemon,سودا لیمو,Lemon Soda,108000
 88,fizzy-bar,فیزی بار,rogers-cola,راجرز کولا,Rogers Cola,128000
 89,fizzy-bar,فیزی بار,apple-soda,اپل سودا,Apple Soda,118000
 90,fizzy-bar,فیزی بار,classic-beer,مالت کلاسیک,Classic Beer,170000
-91,fizzy-bar,فیزی بار,airish-beer,مالت آیریش,Airish Beer,200000
+91,fizzy-bar,فیزی بار,airish-beer,مالت آیریش,Irish Beer,200000
 92,fizzy-bar,فیزی بار,coca-ice-cream,کوکا بستنی,Coca Ice Cream,180000
 93,fizzy-bar,فیزی بار,grape-beer,مالت انگور,Grape Beer,220000
 94,fizzy-bar,فیزی بار,lemonade,لیموناد کلاسیک,Lemonade,190000
@@ -124,7 +124,7 @@
 123,pizza-xl,پیتزا ایکس‌لارج,xl-chicken-spinach-pizza,پیتزا چیکن اسفناج,Chicken Spinach Pizza,1190000
 124,pizza-xl,پیتزا ایکس‌لارج,xl-bacon-spinach-pizza,پیتزا بیکن اسفناج,Bacon Spinach Pizza,1290000
 125,pizza-xl,پیتزا ایکس‌لارج,xl-margherita-pizza,پیتزا مارگاریتا,Margherita Pizza,790000
-126,pizza-xl,پیتزا ایکس‌لارج,xl-parmigiano-pizza,پیتزا کرم بیکن,Parmigiano Pizza,1490000
+126,pizza-xl,پیتزا ایکس‌لارج,xl-parmigiano-pizza,پیتزا کرم بیکن,Bacon Cream Pizza,1490000
 127,pizza-large,پیتزا لارج,large-chicken-pesto-pizza,پیتزا چیکن پستو,Chicken Pesto Pizza,730000
 128,pizza-large,پیتزا لارج,large-special-pizza,پیتزا اسپشیال,Special Pizza,890000
 129,pizza-large,پیتزا لارج,large-pulled-beef-pizza,پیتزا پولد بیف,Pulled Beef Pizza,890000
@@ -139,7 +139,7 @@
 138,pasta,پاستا,pulled-beef-lasagna,لازانیا پولد بیف,Pulled Beef Lasagna,1100000
 139,pasta,پاستا,chicken-spinach-lasagna,لازانیا چیکن اسفناج,Chicken & Spinach Lasagna,890000
 140,pasta,پاستا,chicken-alfredo-pasta,پاستا چیکن آلفردو,Chicken Alfredo Pasta,750000
-141,steak,استیک,blaze-butter-steaks,استیک بلیز اند باتر,Blaze & Butter Steaks,1980000
+141,steak,استیک,blaze-butter-steaks,استیک بلیز اند باتر,Blaze & Butter Steak,1980000
 142,steak,استیک,entrecote-steak,استیک انترکوت,Entrecote Steak,2190000
 143,steak,استیک,ohio-steak,استیک اوهایو,Ohio Steak,3950000
 144,steak,استیک,scottish-steak,استیک اسکاتلندی,Scottish Steak,2300000
@@ -152,13 +152,13 @@
 151,king-burger,کینگ برگر,king-bone-marrow-burger,بن مارو برگر,Bone Marrow Burger,1490000
 152,king-burger,کینگ برگر,king-sausage-burger,ساسیج برگر,Sausage Burger,1295000
 153,king-burger,کینگ برگر,king-caramelized-burger,کاراملایزد برگر,Caramelized Burger,1210000
-154,king-burger,کینگ برگر,king-spicy-camembert-burger,بوفالو کممبر برگر,Spicy Camembert Burger,1295000
+154,king-burger,کینگ برگر,king-spicy-camembert-burger,بوفالو کممبر برگر,Buffalo Camembert Burger,1295000
 155,king-burger,کینگ برگر,king-mushroom-burger,ماشروم برگر,Mushroom Burger,1150000
 156,king-burger,کینگ برگر,king-halloumi-mushroom-burger,هالومی ماشروم برگر,Halloumi Mushroom Burger,1295000
 157,king-burger,کینگ برگر,king-mexicano-burger,مکزیکانو برگر,Mexicano Burger,1270000
 158,burger-180,برگر ۱۸۰ گرمی,180-sausage-burger,ساسیج برگر,Sausage Burger,1059000
-159,burger-180,برگر ۱۸۰ گرمی,180-spicy-camembert-burger,بوفالو کممبر برگر,Spicy Camembert Burger,1059000
-160,burger-180,برگر ۱۸۰ گرمی,180-halloumi-mushroom-burger,هالومی ماشروم برگر,Mushroom Halloumi Burger,1059000
+159,burger-180,برگر ۱۸۰ گرمی,180-spicy-camembert-burger,بوفالو کممبر برگر,Buffalo Camembert Burger,1059000
+160,burger-180,برگر ۱۸۰ گرمی,180-halloumi-mushroom-burger,هالومی ماشروم برگر,Halloumi Mushroom Burger,1059000
 161,burger-180,برگر ۱۸۰ گرمی,180-bone-marrow-burger,بن مارو برگر,Bone Marrow Burger,1290000
 162,burger-180,برگر ۱۸۰ گرمی,180-caramelized-burger,کاراملایزد برگر,Caramelized Burger,950000
 163,burger-180,برگر ۱۸۰ گرمی,180-mushroom-burger,ماشروم برگر,Mushroom Burger,990000
