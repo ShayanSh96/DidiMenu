@@ -67,7 +67,7 @@ def _localize_items(items, lang):
         if lang == "en":
             item.display_name = item.english_name or item.name
             item.secondary_name = ""
-            item.display_description = ""
+            item.display_description = item.description_en or item.description
         else:
             item.display_name = item.name
             item.secondary_name = item.english_name
@@ -133,7 +133,7 @@ def item_detail(request, slug):
     if ctx["lang"] == "en":
         item.display_name = item.english_name or item.name
         item.secondary_name = ""
-        item.display_description = ""
+        item.display_description = item.description_en or item.description
     else:
         item.display_name = item.name
         item.secondary_name = item.english_name
