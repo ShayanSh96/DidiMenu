@@ -10,7 +10,7 @@
 </head>
 <body>
     <main class="page-shell detail-page">
-        <div class="detail-language">{% include "menu/_lang_switch.html" with %}</div>
+        <div class="detail-language">{% include "menu/_lang_switch.html" %}</div>
         <a class="back-link" href="{% url 'menu:home' %}?category={{ item.category.slug }}&lang={{ lang }}">{% if is_en %}Back to menu{% else %}بازگشت به منو{% endif %}</a>
 
         <article class="detail-card">
