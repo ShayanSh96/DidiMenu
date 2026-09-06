@@ -1,22 +1,19 @@
 {% load static menu_extras %}
 <!doctype html>
-<html lang="{% if is_en %}en{% else %}fa{% endif %}" dir="{% if is_en %}ltr{% else %}rtl{% endif %}">
+<html lang="{{ lang }}" dir="{% if is_en %}ltr{% else %}rtl{% endif %}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#10203f">
     <title>DIDI | Menu</title>
-    <link rel="stylesheet" href="{% static 'menu/style.css' %}?v=20260903-3">
+    <link rel="stylesheet" href="{% static 'menu/style.css' %}?v=20260906-1">
     <style>
         html,body{width:100%;max-width:100%;overflow-x:hidden}
         .page-shell{width:100%!important;max-width:920px!important;min-width:0!important;margin:0 auto!important}
         .hero{position:relative;width:100%!important;max-width:100%!important;overflow:hidden!important}
         .hero__brand-logo{display:block!important;width:260px!important;max-width:70vw!important;height:auto!important;margin:0 auto!important;object-fit:contain!important}
         .site-footer__logo{display:block!important;width:190px!important;max-width:55vw!important;height:auto!important;margin:0 auto!important;object-fit:contain!important}
-        @media(max-width:620px){
-            .page-shell{max-width:100%!important}
-            .hero__brand-logo{width:220px!important;max-width:68vw!important}
-        }
+        @media(max-width:620px){.page-shell{max-width:100%!important}.hero__brand-logo{width:220px!important;max-width:68vw!important}}
     </style>
 </head>
 <body>
@@ -26,26 +23,22 @@
             <img class="hero__brand-logo" src="/media/branding/Artboard%207.png" alt="DIDI SPACE">
             <div class="hero__line"></div>
             <p class="hero__subtitle">CAFE & RESTAURANT</p>
-            <h1>{% if is_en %}DIDI Menu{% else %}منوی دیدی{% endif %}</h1>
-            <p class="hero__intro">{% if is_en %}Choose your preferred category{% else %}دسته‌بندی مورد نظرتان را انتخاب کنید{% endif %}</p>
+            <h1>{% if is_en %}DIDI Menu{% elif is_ar %}قائمة DIDI{% else %}منوی دیدی{% endif %}</h1>
+            <p class="hero__intro">{% if is_en %}Choose your preferred category{% elif is_ar %}اختر الفئة التي تريدها{% else %}دسته‌بندی مورد نظرتان را انتخاب کنید{% endif %}</p>
         </header>
 
         {% if categories %}
-            <section class="categories" aria-label="{% if is_en %}Menu categories{% else %}دسته‌بندی‌های منو{% endif %}">
+            <section class="categories" aria-label="{% if is_en %}Menu categories{% elif is_ar %}فئات القائمة{% else %}دسته‌بندی‌های منو{% endif %}">
                 <div class="section-heading">
                     <span>MENU</span>
-                    <h2>{% if is_en %}Categories{% else %}دسته‌بندی‌ها{% endif %}</h2>
+                    <h2>{% if is_en %}Categories{% elif is_ar %}الفئات{% else %}دسته‌بندی‌ها{% endif %}</h2>
                 </div>
 
                 <nav class="category-strip" id="categoryStrip">
                     {% for category in categories %}
                         <a class="category-card{% if selected_category and category.pk == selected_category.pk %} category-card--active{% endif %}" href="?category={{ category.slug }}&lang={{ lang }}#products">
                             <div class="category-card__image-wrap">
-                                {% if category.image %}
-                                    <img class="category-card__image" src="{{ category.image.url }}" alt="{{ category.display_name }}" loading="lazy">
-                                {% else %}
-                                    <div class="category-card__placeholder"><span>DIDI</span></div>
-                                {% endif %}
+                                {% if category.image %}<img class="category-card__image" src="{{ category.image.url }}" alt="{{ category.display_name }}" loading="lazy">{% else %}<div class="category-card__placeholder"><span>DIDI</span></div>{% endif %}
                                 <div class="category-card__shade"></div>
                                 <span class="category-card__title">{{ category.display_name }}</span>
                             </div>
@@ -57,7 +50,7 @@
             {% if selected_category %}
                 <section class="products" id="products">
                     <div class="section-heading section-heading--products">
-                        <span>SELECTED CATEGORY</span>
+                        <span>{% if is_ar %}الفئة المختارة{% else %}SELECTED CATEGORY{% endif %}</span>
                         <h2>{{ selected_category.display_name }}</h2>
                     </div>
 
@@ -65,106 +58,60 @@
                         {% for item in items %}
                             <a class="menu-card{% if not item.is_available %} menu-card--unavailable{% endif %}" href="{{ item.get_absolute_url }}?lang={{ lang }}">
                                 <div class="menu-card__media">
-                                    {% if item.image %}
-                                        <img src="{{ item.image.url }}" alt="{{ item.display_name }}" loading="lazy">
-                                    {% else %}
-                                        <div class="menu-card__placeholder"><img class="menu-card__placeholder-logo" src="/media/branding/Artboard%207.png" alt="DIDI SPACE"></div>
-                                    {% endif %}
-                                    {% if item.is_featured %}<span class="menu-card__badge">{% if is_en %}DIDI Pick{% else %}پیشنهاد دیدی{% endif %}</span>{% endif %}
-                                    {% if not item.is_available %}<span class="menu-card__soldout">{% if is_en %}Sold Out{% else %}اتمام موجودی{% endif %}</span>{% endif %}
+                                    {% if item.image %}<img src="{{ item.image.url }}" alt="{{ item.display_name }}" loading="lazy">{% else %}<div class="menu-card__placeholder"><img class="menu-card__placeholder-logo" src="/media/branding/Artboard%207.png" alt="DIDI SPACE"></div>{% endif %}
+                                    {% if item.is_featured %}<span class="menu-card__badge">{% if is_en %}DIDI Pick{% elif is_ar %}اختيار DIDI{% else %}پیشنهاد دیدی{% endif %}</span>{% endif %}
+                                    {% if not item.is_available %}<span class="menu-card__soldout">{% if is_en %}Sold Out{% elif is_ar %}نفدت الكمية{% else %}اتمام موجودی{% endif %}</span>{% endif %}
                                 </div>
                                 <div class="menu-card__body">
                                     <div class="menu-card__heading">
-                                        <div>
-                                            <h3>{{ item.display_name }}</h3>
-                                            {% if item.secondary_name %}<p class="english-name">{{ item.secondary_name }}</p>{% endif %}
-                                        </div>
-                                        {% if item.is_available %}
-                                            <div class="price"><strong>{{ item.price|price_format }}</strong><small>{% if is_en %}Toman{% else %}تومان{% endif %}</small></div>
-                                        {% endif %}
+                                        <div><h3>{{ item.display_name }}</h3>{% if item.secondary_name %}<p class="english-name">{{ item.secondary_name }}</p>{% endif %}</div>
+                                        {% if item.is_available %}<div class="price"><strong>{{ item.price|price_format }}</strong><small>{% if is_en %}Toman{% elif is_ar %}تومان{% else %}تومان{% endif %}</small></div>{% endif %}
                                     </div>
                                     {% if item.display_description %}<p class="description">{{ item.display_description|truncatechars:115 }}</p>{% endif %}
-                                    <span class="menu-card__more">{% if is_en %}View details{% else %}مشاهده جزئیات{% endif %} <b>←</b></span>
+                                    <span class="menu-card__more">{% if is_en %}View details{% elif is_ar %}عرض التفاصيل{% else %}مشاهده جزئیات{% endif %} <b>←</b></span>
                                 </div>
                             </a>
                         {% empty %}
-                            <div class="empty-state"><strong>DIDI</strong><p>{% if is_en %}Items will be added soon.{% else %}محصولات این دسته به‌زودی اضافه می‌شوند.{% endif %}</p></div>
+                            <div class="empty-state"><strong>DIDI</strong><p>{% if is_en %}Items will be added soon.{% elif is_ar %}ستتم إضافة المنتجات قريباً.{% else %}محصولات این دسته به‌زودی اضافه می‌شوند.{% endif %}</p></div>
                         {% endfor %}
                     </div>
                 </section>
             {% endif %}
         {% else %}
-            <div class="empty-state"><strong>DIDI</strong><p>{% if is_en %}The menu is being prepared.{% else %}منو در حال آماده‌سازی است.{% endif %}</p></div>
+            <div class="empty-state"><strong>DIDI</strong><p>{% if is_en %}The menu is being prepared.{% elif is_ar %}القائمة قيد الإعداد.{% else %}منو در حال آماده‌سازی است.{% endif %}</p></div>
         {% endif %}
 
-        <footer class="site-footer">
-            <img class="site-footer__logo" src="/media/branding/Artboard%207.png" alt="DIDI SPACE">
-            <p>CAFE & RESTAURANT</p>
-        </footer>
+        <footer class="site-footer"><img class="site-footer__logo" src="/media/branding/Artboard%207.png" alt="DIDI SPACE"><p>CAFE & RESTAURANT</p></footer>
     </main>
 
     <script>
         (function () {
             const strip = document.getElementById('categoryStrip');
             const active = strip ? strip.querySelector('.category-card--active') : null;
-
             if (active) {
-                const centerActiveCategory = () => active.scrollIntoView({
-                    behavior: 'auto',
-                    block: 'nearest',
-                    inline: 'center'
-                });
+                const centerActiveCategory = () => active.scrollIntoView({behavior:'auto',block:'nearest',inline:'center'});
                 requestAnimationFrame(() => requestAnimationFrame(centerActiveCategory));
             }
-
             document.querySelectorAll('.category-card').forEach((card) => {
                 card.addEventListener('click', function (event) {
-                    if (
-                        event.button !== 0 ||
-                        event.metaKey ||
-                        event.ctrlKey ||
-                        event.shiftKey ||
-                        event.altKey
-                    ) {
-                        return;
-                    }
-
+                    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
                     const current = new URL(window.location.href);
-                    if (!current.searchParams.has('category')) {
-                        return;
-                    }
-
+                    if (!current.searchParams.has('category')) return;
                     event.preventDefault();
                     window.location.replace(card.href);
                 });
             });
-
             document.querySelectorAll('.menu-card').forEach((card) => {
                 card.addEventListener('click', function (event) {
-                    if (
-                        event.button !== 0 ||
-                        event.metaKey ||
-                        event.ctrlKey ||
-                        event.shiftKey ||
-                        event.altKey
-                    ) {
-                        return;
-                    }
-
+                    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
                     const returnUrl = window.location.pathname + window.location.search + '#menu-top';
                     history.replaceState(history.state, '', returnUrl);
                 });
             });
-
             window.addEventListener('pageshow', function () {
                 if (window.location.hash === '#menu-top') {
                     const top = document.getElementById('menu-top');
-                    if (top) {
-                        requestAnimationFrame(() => top.scrollIntoView({
-                            behavior: 'auto',
-                            block: 'start'
-                        }));
-                    }
+                    if (top) requestAnimationFrame(() => top.scrollIntoView({behavior:'auto',block:'start'}));
                 }
             });
         })();
