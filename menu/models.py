@@ -36,9 +36,15 @@ class MenuItem(models.Model):
         blank=True,
         verbose_name="نام انگلیسی",
     )
+    arabic_name = models.CharField(
+        max_length=160,
+        blank=True,
+        verbose_name="نام عربی",
+    )
     slug = models.SlugField(max_length=180, unique=True, verbose_name="اسلاگ")
     description = models.TextField(blank=True, verbose_name="توضیحات فارسی")
     description_en = models.TextField(blank=True, verbose_name="توضیحات انگلیسی")
+    description_ar = models.TextField(blank=True, verbose_name="توضیحات عربی")
     price = models.PositiveIntegerField(verbose_name="قیمت")
     image = models.ImageField(
         upload_to="menu/items/%Y/%m/",
