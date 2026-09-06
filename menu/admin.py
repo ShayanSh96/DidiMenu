@@ -18,6 +18,7 @@ class MenuItemAdmin(admin.ModelAdmin):
     list_display = (
         "name",
         "english_name",
+        "arabic_name",
         "category",
         "price",
         "is_available",
@@ -27,21 +28,37 @@ class MenuItemAdmin(admin.ModelAdmin):
     list_filter = ("category", "is_available", "is_featured")
     list_editable = (
         "english_name",
+        "arabic_name",
         "price",
         "is_available",
         "is_featured",
         "sort_order",
     )
-    search_fields = ("name", "english_name", "description", "description_en")
+    search_fields = (
+        "name",
+        "english_name",
+        "arabic_name",
+        "description",
+        "description_en",
+        "description_ar",
+    )
     prepopulated_fields = {"slug": ("name",)}
     autocomplete_fields = ("category",)
     ordering = ("category__sort_order", "sort_order", "name")
     fieldsets = (
         ("اطلاعات اصلی", {
-            "fields": ("category", "name", "english_name", "slug", "price", "image")
+            "fields": (
+                "category",
+                "name",
+                "english_name",
+                "arabic_name",
+                "slug",
+                "price",
+                "image",
+            )
         }),
-        ("توضیحات دو زبانه", {
-            "fields": ("description", "description_en")
+        ("توضیحات سه زبانه", {
+            "fields": ("description", "description_en", "description_ar")
         }),
         ("وضعیت نمایش", {
             "fields": ("is_available", "is_featured", "sort_order")
