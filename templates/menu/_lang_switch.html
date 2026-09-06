@@ -1,9 +1,13 @@
 <div class="language-switch" aria-label="Language switcher">
-    <a class="language-switch__item{% if lang == 'fa' %} is-active{% endif %}" href="{% if lang == 'fa' %}#{% else %}{{ switch_url }}{% endif %}"{% if lang == 'fa' %} aria-current="page"{% endif %}>
+    <a class="language-switch__item{% if lang == 'fa' %} is-active{% endif %}" href="{% if lang == 'fa' %}#{% else %}{{ lang_url_fa }}{% endif %}"{% if lang == 'fa' %} aria-current="page"{% endif %}>
         <span class="language-switch__flag">🇮🇷</span><span>FA</span>
     </a>
     <span class="language-switch__sep">|</span>
-    <a class="language-switch__item{% if lang == 'en' %} is-active{% endif %}" href="{% if lang == 'en' %}#{% else %}{{ switch_url }}{% endif %}"{% if lang == 'en' %} aria-current="page"{% endif %}>
+    <a class="language-switch__item{% if lang == 'en' %} is-active{% endif %}" href="{% if lang == 'en' %}#{% else %}{{ lang_url_en }}{% endif %}"{% if lang == 'en' %} aria-current="page"{% endif %}>
         <span class="language-switch__flag">🇬🇧</span><span>EN</span>
+    </a>
+    <span class="language-switch__sep">|</span>
+    <a class="language-switch__item{% if lang == 'ar' %} is-active{% endif %}" href="{% if lang == 'ar' %}#{% else %}{{ lang_url_ar }}{% endif %}"{% if lang == 'ar' %} aria-current="page"{% endif %}>
+        <span class="language-switch__flag">🇸🇦</span><span>AR</span>
     </a>
 </div>
