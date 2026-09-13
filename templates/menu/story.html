@@ -17,7 +17,24 @@
 <header class="story-header"><div class="story-header__inner"><div style="position:absolute;left:70px;top:50%;transform:translateY(-50%);z-index:3">{% include "menu/_lang_switch.html" %}</div><a class="header-btn header-btn--home" href="{% url 'menu:welcome' %}?lang={{ lang }}" aria-label="Home"><svg width="42" height="42" viewBox="0 0 42 42" aria-hidden="true"><path d="M11 15h20M11 21h20M11 27h20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></a><a href="{% url 'menu:welcome' %}?lang={{ lang }}" aria-label="DIDI"><img class="header-logo" src="/media/branding/Artboard%207.png" alt="DIDI SPACE"></a><button class="header-btn header-btn--back" type="button" onclick="history.back()" aria-label="Back"><svg width="42" height="42" viewBox="0 0 42 42" aria-hidden="true"><path d="M24.8 12.5 16.3 21l8.5 8.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div></header>
 <main class="story-shell">
 <div class="story-label">{% if is_en %}DIDI Story{% elif is_ar %}قصة DIDI{% else %}داستان دی‌دی{% endif %}</div>
-<section class="story-grid"><article class="story-main"><video class="story-video" src="/media/story/didi-story.mp4" autoplay loop muted playsinline controls controlslist="nodownload"></video><div class="story-copy"><h1>{% if is_en %}Every moment, every flavor, has a story…{% elif is_ar %}لكل لحظة، ولكل نكهة، حكاية…{% else %}هر لحظه، هر مزه‌، داستانی دارد…{% endif %}</h1><p>{% if is_en %}DIDI was a div.<br>Being a div was in his nature.<br>DIDI had learned to take food from others.<br>News reached Rostam, who rode to Khorasan to confront him.<br>When he reached DIDI's kitchen, he discovered his great skill in cooking.<br>Rostam tamed him, and DIDI became a kind cook for the people of Khorasan…{% elif is_ar %}كان DIDI ديفاً.<br>وكانت طبيعة الديف جزءاً من فطرته.<br>وقد تعلّم DIDI أن يأخذ الطعام من الآخرين.<br>وصل الخبر إلى رستم، فانطلق إلى خراسان لمواجهته.<br>وعندما وصل إلى مطبخ DIDI اكتشف مهارته الكبيرة في الطهي.<br>فروّضه رستم، وأصبح DIDI طاهياً طيباً لأهل خراسان…{% else %}دی‌دی، دیو بود.<br>دیو بودن، سرشتش‌ بود.<br>دی‌دی آموخته بود باید خوراک را از دیگران به یغما ببرد.<br>خبر به گوش رستم رسید؛ رستم تا خراسان تاخت تا از دی‌دی، داد بستاند.<br>به مطبخش رسید و فهمید او مهارت خوبی در خوراک‌پزی دارد.<br>با او درآمیخت، رامش کرد و دی‌دی آشپزی مهربان برای اهالی خراسان شد…{% endif %}</p></div><div class="story-actions"><a class="story-action" href="{% url 'menu:categories' %}?lang={{ lang }}">{% if is_en %}View Menu{% elif is_ar %}عرض القائمة{% else %}مشاهده منو{% endif %}</a><span class="story-action story-action--ghost">{% if is_en %}Events & Gatherings{% elif is_ar %}الفعاليات والتجمعات{% else %}رویداد و دورهمی‌ها{% endif %}</span></div></article><aside class="story-art"><img src="/media/branding/Artboard%208.png" alt="DIDI SPACE"></aside></section>
+<section class="story-grid"><article class="story-main"><video class="story-video" src="/media/story/didi-story.mp4" autoplay loop muted playsinline preload="auto" controls controlslist="nodownload"></video><div class="story-copy"><h1>{% if is_en %}Every moment, every flavor, has a story…{% elif is_ar %}لكل لحظة، ولكل نكهة، حكاية…{% else %}هر لحظه، هر مزه‌، داستانی دارد…{% endif %}</h1><p>{% if is_en %}DIDI was a div.<br>Being a div was in his nature.<br>DIDI had learned to take food from others.<br>News reached Rostam, who rode to Khorasan to confront him.<br>When he reached DIDI's kitchen, he discovered his great skill in cooking.<br>Rostam tamed him, and DIDI became a kind cook for the people of Khorasan…{% elif is_ar %}كان DIDI ديفاً.<br>وكانت طبيعة الديف جزءاً من فطرته.<br>وقد تعلّم DIDI أن يأخذ الطعام من الآخرين.<br>وصل الخبر إلى رستم، فانطلق إلى خراسان لمواجهته.<br>وعندما وصل إلى مطبخ DIDI اكتشف مهارته الكبيرة في الطهي.<br>فروّضه رستم، وأصبح DIDI طاهياً طيباً لأهل خراسان…{% else %}دی‌دی، دیو بود.<br>دیو بودن، سرشتش‌ بود.<br>دی‌دی آموخته بود باید خوراک را از دیگران به یغما ببرد.<br>خبر به گوش رستم رسید؛ رستم تا خراسان تاخت تا از دی‌دی، داد بستاند.<br>به مطبخش رسید و فهمید او مهارت خوبی در خوراک‌پزی دارد.<br>با او درآمیخت، رامش کرد و دی‌دی آشپزی مهربان برای اهالی خراسان شد…{% endif %}</p></div><div class="story-actions"><a class="story-action" href="{% url 'menu:categories' %}?lang={{ lang }}">{% if is_en %}View Menu{% elif is_ar %}عرض القائمة{% else %}مشاهده منو{% endif %}</a><span class="story-action story-action--ghost">{% if is_en %}Events & Gatherings{% elif is_ar %}الفعاليات والتجمعات{% else %}رویداد و دورهمی‌ها{% endif %}</span></div></article><aside class="story-art"><img src="/media/branding/Artboard%208.png" alt="DIDI SPACE"></aside></section>
 </main>
+<script>
+function forceStoryVideoPlay() {
+    const video = document.querySelector('.story-video');
+    if (!video) return;
+
+    video.muted = true;
+    video.playsInline = true;
+
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+        playPromise.catch(() => {});
+    }
+}
+
+document.addEventListener('DOMContentLoaded', forceStoryVideoPlay);
+window.addEventListener('pageshow', forceStoryVideoPlay);
+</script>
 </body>
 </html>
