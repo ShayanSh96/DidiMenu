@@ -25,7 +25,7 @@
             {% if item.display_description %}<p class="detail-description">{{ item.display_description }}</p>{% endif %}
 
             {% if item.is_available %}
-                <div class="detail-price">{{ item.price|price_format }} {% if is_en %}Toman{% elif is_ar %}تومان{% else %}تومان{% endif %}</div>
+                <div class="detail-price">{% if item.price_on_request %}{% if is_en %}By arrangement / Advance reservation{% elif is_ar %}بالتنسيق / حجز مسبق{% else %}با هماهنگی / رزرو قبلی{% endif %}{% else %}{{ item.price|price_format }} {% if is_en %}Toman{% elif is_ar %}تومان{% else %}تومان{% endif %}{% endif %}</div>
             {% else %}
                 <div class="detail-price unavailable">{% if is_en %}Sold Out{% elif is_ar %}نفدت الكمية{% else %}اتمام موجودی{% endif %}</div>
             {% endif %}
