@@ -65,7 +65,7 @@
                                 <div class="menu-card__body">
                                     <div class="menu-card__heading">
                                         <div><h3>{{ item.display_name }}</h3>{% if item.secondary_name %}<p class="english-name">{{ item.secondary_name }}</p>{% endif %}</div>
-                                        {% if item.is_available %}<div class="price"><strong>{{ item.price|price_format }}</strong><small>{% if is_en %}Toman{% elif is_ar %}تومان{% else %}تومان{% endif %}</small></div>{% endif %}
+                                        {% if item.is_available %}<div class="price">{% if item.price_on_request %}<strong>{% if is_en %}By arrangement / Advance reservation{% elif is_ar %}بالتنسيق / حجز مسبق{% else %}با هماهنگی / رزرو قبلی{% endif %}</strong>{% else %}<strong>{{ item.price|price_format }}</strong><small>{% if is_en %}Toman{% elif is_ar %}تومان{% else %}تومان{% endif %}</small>{% endif %}</div>{% endif %}
                                     </div>
                                     {% if item.display_description %}<p class="description">{{ item.display_description|truncatechars:115 }}</p>{% endif %}
                                     <span class="menu-card__more">{% if is_en %}View details{% elif is_ar %}عرض التفاصيل{% else %}مشاهده جزئیات{% endif %} <b>←</b></span>
