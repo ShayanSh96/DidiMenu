@@ -21,15 +21,17 @@ class MenuItemAdmin(admin.ModelAdmin):
         "arabic_name",
         "category",
         "price",
+        "price_on_request",
         "is_available",
         "is_featured",
         "sort_order",
     )
-    list_filter = ("category", "is_available", "is_featured")
+    list_filter = ("category", "price_on_request", "is_available", "is_featured")
     list_editable = (
         "english_name",
         "arabic_name",
         "price",
+        "price_on_request",
         "is_available",
         "is_featured",
         "sort_order",
@@ -54,6 +56,7 @@ class MenuItemAdmin(admin.ModelAdmin):
                 "arabic_name",
                 "slug",
                 "price",
+                "price_on_request",
                 "image",
             )
         }),
