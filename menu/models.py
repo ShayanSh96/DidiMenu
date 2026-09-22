@@ -46,6 +46,11 @@ class MenuItem(models.Model):
     description_en = models.TextField(blank=True, verbose_name="توضیحات انگلیسی")
     description_ar = models.TextField(blank=True, verbose_name="توضیحات عربی")
     price = models.PositiveIntegerField(verbose_name="قیمت")
+    price_on_request = models.BooleanField(
+        default=False,
+        verbose_name="قیمت با هماهنگی / رزرو قبلی",
+        help_text="اگر فعال باشد، به جای قیمت عبارت «با هماهنگی / رزرو قبلی» نمایش داده می‌شود.",
+    )
     image = models.ImageField(
         upload_to="menu/items/%Y/%m/",
         blank=True,
