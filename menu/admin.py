@@ -103,8 +103,8 @@ class AvailabilityMenuItemAdmin(admin.ModelAdmin):
     @admin.display(description="وضعیت")
     def availability_status(self, obj):
         if obj.is_available:
-            return format_html('<strong style="color:#198754">موجود</strong>')
-        return format_html('<strong style="color:#dc3545">ناموجود</strong>')
+            return format_html('<strong style="color:{}">{}</strong>', "#198754", "موجود")
+        return format_html('<strong style="color:{}">{}</strong>', "#dc3545", "ناموجود")
 
     @admin.display(description="تغییر موجودی")
     def availability_action(self, obj):
