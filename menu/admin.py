@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from django.urls import path, reverse
 from django.utils.html import format_html
 
-from .models import Category, MenuItem
+from .models import AvailabilityMenuItem, Category, MenuItem
 
 
 @admin.register(Category)
@@ -71,13 +71,6 @@ class MenuItemAdmin(admin.ModelAdmin):
             "fields": ("is_available", "is_featured", "sort_order")
         }),
     )
-
-
-class AvailabilityMenuItem(MenuItem):
-    class Meta:
-        proxy = True
-        verbose_name = "موجودی محصول"
-        verbose_name_plural = "مدیریت موجودی محصولات"
 
 
 @admin.register(AvailabilityMenuItem)
