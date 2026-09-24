@@ -73,3 +73,10 @@ class MenuItem(models.Model):
 
     def get_absolute_url(self):
         return reverse("menu:item_detail", kwargs={"slug": self.slug})
+
+
+class AvailabilityMenuItem(MenuItem):
+    class Meta:
+        proxy = True
+        verbose_name = "موجودی محصول"
+        verbose_name_plural = "مدیریت موجودی محصولات"
