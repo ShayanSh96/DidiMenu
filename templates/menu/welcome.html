@@ -33,6 +33,15 @@ body{font-family:'DAMOON',Tahoma,Arial,sans-serif;background:#111;color:#10203f}
 @media(max-width:600px){.landing{padding:24px 14px}.brand{width:min(94vw,390px);margin-bottom:32px;transform:translateY(135px) scale(1.26)}.nav-links{gap:15px}.nav-link{width:min(72vw,250px);min-height:55px;font-size:20px}@keyframes brandIntro{0%{opacity:0;transform:translateY(135px) scale(1.26);clip-path:inset(0 50% 0 50%)}12%{opacity:1}58%{opacity:1;transform:translateY(135px) scale(1.26);clip-path:inset(0 0 0 0)}72%{opacity:1;transform:translateY(135px) scale(1.26);clip-path:inset(0 0 0 0)}100%{opacity:1;transform:translateY(0) scale(1);clip-path:inset(0 0 0 0)}}}
 @media(max-height:720px){.brand{width:min(78vw,320px);margin-bottom:20px}.nav-links{gap:10px}.nav-link{min-height:46px;font-size:18px}}
 @media(prefers-reduced-motion:reduce){.landing__video,.landing__overlay,.brand,.brand::after,.nav-link,.language-switch{animation:none!important;opacity:1!important;transform:none!important;clip-path:none!important}}
+.location-section{background:#f4f1e9;padding:64px 18px 72px;color:#10203f;text-align:center}
+.location-wrap{width:min(100%,980px);margin:0 auto}
+.location-kicker{margin:0 0 7px;font-family:Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:.18em;color:#7d735f}
+.location-title{margin:0 0 28px;font-size:30px;font-weight:700}
+.map-frame{width:100%;height:420px;border:0;display:block;background:#ddd;box-shadow:0 14px 34px rgba(16,32,63,.14)}
+.location-address{margin:24px auto 0;max-width:760px;font-size:18px;line-height:2;color:#263752}
+.location-link{display:inline-flex;align-items:center;justify-content:center;margin-top:18px;min-height:48px;padding:10px 24px;border:1.5px solid #10203f;color:#10203f;text-decoration:none;font-size:16px;font-weight:600;transition:.2s ease}
+.location-link:hover{background:#10203f;color:#fff}
+@media(max-width:600px){.location-section{padding:46px 14px 54px}.location-title{font-size:25px;margin-bottom:22px}.map-frame{height:330px}.location-address{font-size:16px;line-height:1.9}.location-link{width:min(100%,260px)}}
 </style>
 </head>
 <body>
@@ -50,5 +59,28 @@ body{font-family:'DAMOON',Tahoma,Arial,sans-serif;background:#111;color:#10203f}
 </nav>
 </section>
 </main>
+<section class="location-section" aria-labelledby="location-title">
+<div class="location-wrap">
+<p class="location-kicker">DIDI SPACE</p>
+<h2 class="location-title" id="location-title">{% if is_en %}Find Us{% elif is_ar %}موقعنا{% else %}لوکیشن دیدی{% endif %}</h2>
+<iframe
+    class="map-frame"
+    src="https://maps.google.com/maps?q=8FQC%2B26H%2C%20Mashhad%2C%20Iran&z=16&output=embed"
+    title="{% if is_en %}DIDI Cafe & Restaurant location{% elif is_ar %}موقع مطعم ومقهى ديدي{% else %}لوکیشن کافه رستوران دیدی{% endif %}"
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    allowfullscreen>
+</iframe>
+<p class="location-address">
+{% if is_en %}8FQC+26H, Mashhad, Razavi Khorasan, Iran
+{% elif is_ar %}8FQC+26H، مشهد، خراسان الرضوية، إيران
+{% else %}مشهد، خراسان رضوی — 8FQC+26H
+{% endif %}
+</p>
+<a class="location-link" href="https://www.google.com/maps/search/?api=1&query=8FQC%2B26H%2C%20Mashhad%2C%20Iran" target="_blank" rel="noopener">
+{% if is_en %}Open in Google Maps{% elif is_ar %}فتح في خرائط Google{% else %}مسیریابی در گوگل مپ{% endif %}
+</a>
+</div>
+</section>
 </body>
 </html>
