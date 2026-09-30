@@ -181,7 +181,7 @@ ITEMS = [
     ("steak", "استیک اوهایو", "Ohio Steak", "ohio-steak", 0, False),
     ("steak", "استیک اسکاتلندی", "Scottish Steak", "scottish-steak", 2200, True),
     ("steak", "استیک وگاس", "Vegas Steak", "vegas-steak", 0, False),
-    ("steak", "دکوتا چیکن", "Dakota Chicken", "dakota-chicken", 990, True),
+    ("steak", "چیکن داکوتا", "Dakota Chicken", "dakota-chicken", 990, True),
     ("king-burger", "ریپ برگر", "Rib Burger", "king-rib-burger", 1420, True),
     ("king-burger", "چیکن برگر کلاسیک", "Chicken Burger", "king-chicken-burger", 740, True),
     ("king-burger", "چیکن برگر اسپایسی", "Spicy Chicken Burger", "king-spicy-chicken-burger", 760, True),
