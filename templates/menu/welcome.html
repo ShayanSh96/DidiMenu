@@ -54,9 +54,9 @@ body{font-family:'DAMOON',Tahoma,Arial,sans-serif;background:#111;color:#10203f}
 <nav class="nav-links">
 <a class="nav-link" href="{% url 'menu:categories' %}?lang={{ lang }}">{% if is_en %}Menu{% elif is_ar %}القائمة{% else %}منو{% endif %}</a>
 <a class="nav-link" href="{% url 'menu:story' %}?lang={{ lang }}">{% if is_en %}Our Story{% elif is_ar %}قصتنا{% else %}داستان ما{% endif %}</a>
-<a class="nav-link" href="/club/">{% if is_en %}Customer Club{% elif is_ar %}نادي العملاء{% else %}باشگاه مشتریان{% endif %}</a>
+<a class="nav-link" href="/club/">{% if is_en %}DIDI Family{% elif is_ar %}عائلة DIDI{% else %}خانواده دی دی{% endif %}</a>
 <span class="nav-link nav-link--muted">{% if is_en %}Events{% elif is_ar %}الفعاليات{% else %}رویدادها{% endif %}</span>
-<a class="nav-link" href="{% url 'menu:family' %}?lang={{ lang }}">{% if is_en %}DIDI Family{% elif is_ar %}عائلة DIDI{% else %}خانواده‌ی دی دی{% endif %}</a>
+<a class="nav-link" href="{% url 'menu:family' %}?lang={{ lang }}">{% if is_en %}DIDI Resume{% elif is_ar %}السيرة التعريفية لديدي{% else %}رزومه دی دی{% endif %}</a>
 </nav>
 </section>
 </main>
