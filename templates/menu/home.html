@@ -60,16 +60,16 @@
 
                     <div class="menu-grid">
                         {% for item in items %}
-                            <a class="menu-card{% if not item.is_available %} menu-card--unavailable{% endif %}" href="{{ item.get_absolute_url }}?lang={{ lang }}">
+                            <a class="menu-card{% if not item.is_available and not item.is_coming_soon %} menu-card--unavailable{% endif %}" href="{{ item.get_absolute_url }}?lang={{ lang }}">
                                 <div class="menu-card__media">
                                     {% if item.image %}<img src="{{ item.image.url }}" alt="{{ item.display_name }}" loading="lazy">{% else %}<div class="menu-card__placeholder"><img class="menu-card__placeholder-logo" src="/media/branding/Artboard%207.png" alt="DIDI SPACE"></div>{% endif %}
                                     {% if item.is_coming_soon %}<span class="menu-card__badge">{% if is_en %}Coming Soon{% elif is_ar %}قريباً{% else %}به زودی{% endif %}</span>{% elif item.is_featured %}<span class="menu-card__badge">{% if is_en %}DIDI Pick{% elif is_ar %}اختيار DIDI{% else %}پیشنهاد دی دی{% endif %}</span>{% endif %}
-                                    {% if not item.is_available %}<span class="menu-card__soldout">{% if is_en %}Sold Out{% elif is_ar %}نفدت الكمية{% else %}اتمام موجودی{% endif %}</span>{% endif %}
+                                    {% if not item.is_coming_soon and not item.is_available %}<span class="menu-card__soldout">{% if is_en %}Sold Out{% elif is_ar %}نفدت الكمية{% else %}اتمام موجودی{% endif %}</span>{% endif %}
                                 </div>
                                 <div class="menu-card__body">
                                     <div class="menu-card__heading">
                                         <div><h3>{{ item.display_name }}</h3>{% if item.secondary_name %}<p class="english-name">{{ item.secondary_name }}</p>{% endif %}</div>
-                                        {% if item.is_available %}<div class="price">{% if item.price_on_request %}<strong>{% if is_en %}By arrangement / Advance reservation{% elif is_ar %}بالتنسيق / حجز مسبق{% else %}با هماهنگی / رزرو قبلی{% endif %}</strong>{% else %}<strong>{{ item.price|price_format }}</strong><small>{% if is_en %}Toman{% elif is_ar %}تومان{% else %}تومان{% endif %}</small>{% endif %}</div>{% endif %}
+                                        {% if item.is_coming_soon %}<div class="price"><strong>{% if is_en %}Coming Soon{% elif is_ar %}قريباً{% else %}به زودی{% endif %}</strong></div>{% elif item.is_available %}<div class="price">{% if item.price_on_request %}<strong>{% if is_en %}By arrangement / Advance reservation{% elif is_ar %}بالتنسيق / حجز مسبق{% else %}با هماهنگی / رزرو قبلی{% endif %}</strong>{% else %}<strong>{{ item.price|price_format }}</strong><small>{% if is_en %}Toman{% elif is_ar %}تومان{% else %}تومان{% endif %}</small>{% endif %}</div>{% endif %}
                                     </div>
                                     {% if item.display_description %}<p class="description">{{ item.display_description|truncatechars:115 }}</p>{% endif %}
                                     <span class="menu-card__more">{% if is_en %}View details{% elif is_ar %}عرض التفاصيل{% else %}مشاهده جزئیات{% endif %} <b>←</b></span>
