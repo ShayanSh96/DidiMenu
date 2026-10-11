@@ -14,16 +14,20 @@
         .hero__brand-logo{display:block!important;width:260px!important;max-width:70vw!important;height:auto!important;margin:0 auto!important;object-fit:contain!important}
         .site-footer__logo{display:block!important;width:190px!important;max-width:55vw!important;height:auto!important;margin:0 auto!important;object-fit:contain!important}
         @media(max-width:620px){.page-shell{max-width:100%!important}.hero__brand-logo{width:220px!important;max-width:68vw!important}}
-    </style>
+    .menu-home-link{position:absolute;top:16px;right:18px;z-index:10;display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid rgba(255,255,255,.4);border-radius:50%;background:rgba(8,18,40,.35);color:#fff;text-decoration:none;transition:background .2s}
+.menu-home-link:hover,.menu-home-link:focus-visible{background:rgba(255,255,255,.22)}
+.menu-home-link svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+</style>
 </head>
 <body>
     <main class="page-shell">
         <header class="hero" id="menu-top">
             {% include "menu/_lang_switch.html" %}
+            <a class="menu-home-link" href="{% url 'menu:welcome' %}?lang={{ lang }}" aria-label="{% if is_en %}Home{% elif is_ar %}الرئيسية{% else %}صفحه اصلی{% endif %}" title="{% if is_en %}Home{% elif is_ar %}الرئيسية{% else %}صفحه اصلی{% endif %}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg></a>
             <img class="hero__brand-logo" src="/media/branding/Artboard%207.png" alt="DIDI SPACE">
             <div class="hero__line"></div>
             <p class="hero__subtitle">CAFE & RESTAURANT</p>
-            <h1>{% if is_en %}DIDI Menu{% elif is_ar %}قائمة DIDI{% else %}منوی دیدی{% endif %}</h1>
+            <h1>{% if is_en %}DIDI Menu{% elif is_ar %}قائمة DIDI{% else %}منوی دی دی{% endif %}</h1>
             <p class="hero__intro">{% if is_en %}Choose your preferred category{% elif is_ar %}اختر الفئة التي تريدها{% else %}دسته‌بندی مورد نظرتان را انتخاب کنید{% endif %}</p>
         </header>
 
@@ -59,7 +63,7 @@
                             <a class="menu-card{% if not item.is_available %} menu-card--unavailable{% endif %}" href="{{ item.get_absolute_url }}?lang={{ lang }}">
                                 <div class="menu-card__media">
                                     {% if item.image %}<img src="{{ item.image.url }}" alt="{{ item.display_name }}" loading="lazy">{% else %}<div class="menu-card__placeholder"><img class="menu-card__placeholder-logo" src="/media/branding/Artboard%207.png" alt="DIDI SPACE"></div>{% endif %}
-                                    {% if item.is_featured %}<span class="menu-card__badge">{% if is_en %}DIDI Pick{% elif is_ar %}اختيار DIDI{% else %}پیشنهاد دیدی{% endif %}</span>{% endif %}
+                                    {% if item.is_featured %}<span class="menu-card__badge">{% if is_en %}DIDI Pick{% elif is_ar %}اختيار DIDI{% else %}پیشنهاد دی دی{% endif %}</span>{% endif %}
                                     {% if not item.is_available %}<span class="menu-card__soldout">{% if is_en %}Sold Out{% elif is_ar %}نفدت الكمية{% else %}اتمام موجودی{% endif %}</span>{% endif %}
                                 </div>
                                 <div class="menu-card__body">
