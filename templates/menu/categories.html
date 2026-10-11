@@ -25,12 +25,16 @@
         .category-page__tax{margin:12px auto 0;text-align:center;color:#7f735e;font-size:12px;font-weight:400;line-height:1.9}
         @media(max-width:700px){.category-page__hero{padding:28px 18px 24px}.category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.top-category{min-height:132px;border-radius:16px}.didi-wordmark{width:min(64vw,220px)}}
         @media(max-width:380px){.category-page__content{padding-left:12px;padding-right:12px}.category-grid{gap:10px}.top-category{min-height:120px}.top-category__title{font-size:13px}}
-    </style>
+    .menu-home-link{position:absolute;top:16px;right:18px;z-index:10;display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid rgba(255,255,255,.4);border-radius:50%;background:rgba(8,18,40,.35);color:#fff;text-decoration:none;transition:background .2s}
+.menu-home-link:hover,.menu-home-link:focus-visible{background:rgba(255,255,255,.22)}
+.menu-home-link svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+</style>
 </head>
 <body>
 <main class="category-page">
     <header class="category-page__hero">
         {% include "menu/_lang_switch.html" %}
+            <a class="menu-home-link" href="{% url 'menu:welcome' %}?lang={{ lang }}" aria-label="{% if is_en %}Home{% elif is_ar %}الرئيسية{% else %}صفحه اصلی{% endif %}" title="{% if is_en %}Home{% elif is_ar %}الرئيسية{% else %}صفحه اصلی{% endif %}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg></a>
         <img class="didi-wordmark" src="/media/branding/Artboard%207.png" alt="DIDI SPACE">
         <h1 class="category-page__title">{% if is_en %}Menu{% elif is_ar %}القائمة{% else %}منو{% endif %}</h1>
         <p class="category-page__subtitle">{% if is_en %}Choose a category{% elif is_ar %}اختر الفئة التي تريدها{% else %}دسته‌بندی مورد نظرت رو انتخاب کن{% endif %}</p>
