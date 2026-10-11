@@ -28,9 +28,10 @@ class MenuItemAdmin(admin.ModelAdmin):
         "price_on_request",
         "is_available",
         "is_featured",
+        "is_coming_soon",
         "sort_order",
     )
-    list_filter = ("category", "price_on_request", "is_available", "is_featured")
+    list_filter = ("category", "price_on_request", "is_available", "is_featured", "is_coming_soon")
     list_editable = (
         "english_name",
         "arabic_name",
@@ -38,6 +39,7 @@ class MenuItemAdmin(admin.ModelAdmin):
         "price_on_request",
         "is_available",
         "is_featured",
+        "is_coming_soon",
         "sort_order",
     )
     search_fields = (
@@ -68,7 +70,7 @@ class MenuItemAdmin(admin.ModelAdmin):
             "fields": ("description", "description_en", "description_ar")
         }),
         ("وضعیت نمایش", {
-            "fields": ("is_available", "is_featured", "sort_order")
+            "fields": ("is_available", "is_featured", "is_coming_soon", "sort_order")
         }),
     )
 
