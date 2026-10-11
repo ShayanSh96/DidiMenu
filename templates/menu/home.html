@@ -63,7 +63,7 @@
                             <a class="menu-card{% if not item.is_available %} menu-card--unavailable{% endif %}" href="{{ item.get_absolute_url }}?lang={{ lang }}">
                                 <div class="menu-card__media">
                                     {% if item.image %}<img src="{{ item.image.url }}" alt="{{ item.display_name }}" loading="lazy">{% else %}<div class="menu-card__placeholder"><img class="menu-card__placeholder-logo" src="/media/branding/Artboard%207.png" alt="DIDI SPACE"></div>{% endif %}
-                                    {% if item.is_featured %}<span class="menu-card__badge">{% if is_en %}DIDI Pick{% elif is_ar %}اختيار DIDI{% else %}پیشنهاد دی دی{% endif %}</span>{% endif %}
+                                    {% if item.is_coming_soon %}<span class="menu-card__badge">{% if is_en %}Coming Soon{% elif is_ar %}قريباً{% else %}به زودی{% endif %}</span>{% elif item.is_featured %}<span class="menu-card__badge">{% if is_en %}DIDI Pick{% elif is_ar %}اختيار DIDI{% else %}پیشنهاد دی دی{% endif %}</span>{% endif %}
                                     {% if not item.is_available %}<span class="menu-card__soldout">{% if is_en %}Sold Out{% elif is_ar %}نفدت الكمية{% else %}اتمام موجودی{% endif %}</span>{% endif %}
                                 </div>
                                 <div class="menu-card__body">
