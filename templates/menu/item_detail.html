@@ -20,6 +20,7 @@
                 <div class="detail-image-placeholder"><img src="/media/branding/Artboard%207.png" alt="DIDI SPACE"></div>
             {% endif %}
 
+            {% if item.is_coming_soon %}<p style="font-weight:700;color:#10203f">{% if is_en %}Coming Soon{% elif is_ar %}قريباً{% else %}به زودی{% endif %}</p>{% endif %}
             <h1>{{ item.display_name }}</h1>
             {% if item.secondary_name %}<p class="english-name">{{ item.secondary_name }}</p>{% endif %}
             {% if item.display_description %}<p class="detail-description">{{ item.display_description }}</p>{% endif %}
