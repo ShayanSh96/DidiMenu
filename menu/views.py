@@ -105,7 +105,7 @@ def menu_home(request):
         ctx["categories"] = categories
         return render(request, "menu/categories.html", ctx)
 
-    items = list(MenuItem.objects.filter(category=selected_category).order_by("sort_order", "name"))
+    items = list(MenuItem.objects.filter(category=selected_category, is_archived=False).order_by("sort_order", "name"))
     _localize_items(items, lang)
     ctx.update({"categories": categories, "selected_category": selected_category, "items": items})
     return render(request, "menu/home.html", ctx)
@@ -113,7 +113,7 @@ def menu_home(request):
 
 def item_detail(request, slug):
     ctx = _language_context(request)
-    item = get_object_or_404(MenuItem.objects.select_related("category"), slug=slug)
+    item = get_object_or_404(MenuItem.objects.select_related("category"), slug=slug, is_archived=False)
     _localize_items([item], ctx["lang"])
     _localize_categories([item.category], ctx["lang"])
     ctx["item"] = item
