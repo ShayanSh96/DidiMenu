@@ -29,9 +29,10 @@ class MenuItemAdmin(admin.ModelAdmin):
         "is_available",
         "is_featured",
         "is_coming_soon",
+        "archive_status",
         "sort_order",
     )
-    list_filter = ("category", "price_on_request", "is_available", "is_featured", "is_coming_soon")
+    list_filter = ("category", "price_on_request", "is_available", "is_featured", "is_coming_soon", "is_archived")
     list_editable = (
         "english_name",
         "arabic_name",
@@ -70,9 +71,13 @@ class MenuItemAdmin(admin.ModelAdmin):
             "fields": ("description", "description_en", "description_ar")
         }),
         ("وضعیت نمایش", {
-            "fields": ("is_available", "is_featured", "is_coming_soon", "sort_order")
+            "fields": ("is_available", "is_featured", "is_coming_soon", "sort_order", "is_archived")
         }),
     )
+
+    @admin.display(description="آرشیو")
+    def archive_status(self, obj):
+        return "آرشیو شده" if obj.is_archived else "فعال"
 
 
 @admin.register(AvailabilityMenuItem)
