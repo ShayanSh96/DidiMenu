@@ -60,6 +60,7 @@ class MenuItem(models.Model):
     is_available = models.BooleanField(default=True, verbose_name="موجود")
     is_featured = models.BooleanField(default=False, verbose_name="ویژه")
     is_coming_soon = models.BooleanField(default=False, verbose_name="به زودی")
+    is_archived = models.BooleanField(default=False, verbose_name="آرشیو شده")
     sort_order = models.PositiveIntegerField(default=0, verbose_name="ترتیب نمایش")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
