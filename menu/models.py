@@ -82,3 +82,18 @@ class AvailabilityMenuItem(MenuItem):
         proxy = True
         verbose_name = "موجودی محصول"
         verbose_name_plural = "مدیریت موجودی محصولات"
+
+
+class WelcomeNotice(models.Model):
+    title = models.CharField(max_length=200, default="به فضای دی‌دی خوش آمدید!", verbose_name="عنوان")
+    body = models.TextField(default="خوشحالیم که میزبان شما هستیم. برای اینکه تجربه‌ای آرام، منظم و دلنشین برای همه مهمانان عزیزمان فراهم شود، لطفاً به نکات زیر توجه فرمایید:\n\nموسیقی در طبقه پایین با صدای بالاتری پخش می‌شود و طبقه بالا فضای آرام‌تر با صدای موسیقی کمتری دارد.\n\nمدت استفاده از میزها برای کافی‌شاپ، از زمان ثبت سفارش ۶۰ دقیقه و برای سرو شام ۷۵ دقیقه در نظر گرفته شده است.\n\nدر روزهای پر مهمان دی‌دی ، از ساعت ۲۰:۳۰ پذیرش سفارش شامل شام به همراه سفارش کافی‌شاپ خواهد بود.\n\nبرای نظم بهتر در میزبانی از شما عزیزان خواهشمندیم در ساعت اعلام‌شده برای رزرو حضور داشته باشید.\n\nدر صورت تأخیر بیش از ۱۵ دقیقه، رزرو به‌صورت خودکار لغو خواهد شد.\n\nاز همراهی و درک شما سپاسگزاریم و امیدواریم لحظات خوشی را در دی‌دی تجربه کنید.", verbose_name="متن اطلاعیه")
+    button_label = models.CharField(max_length=100, default="متوجه شدم، ورود به سایت", verbose_name="متن دکمه")
+    is_active = models.BooleanField(default=True, verbose_name="فعال")
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = "اطلاعیه ورود به سایت"
+        verbose_name_plural = "اطلاعیه ورود به سایت"
+
+    def __str__(self):
+        return self.title
