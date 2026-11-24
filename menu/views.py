@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, render
 
-from .models import Category, MenuItem
+from .models import Category, MenuItem, WelcomeNotice
 
 
 CATEGORY_NAMES_EN = {
@@ -40,6 +40,7 @@ def _language_context(request):
         return f"{request.path}?{query}" if query else request.path
 
     return {
+        "welcome_notice": WelcomeNotice.objects.filter(pk=1, is_active=True).first(),
         "lang": lang,
         "is_en": lang == "en",
         "is_ar": lang == "ar",
