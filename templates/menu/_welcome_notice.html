@@ -1,0 +1,40 @@
+{% if welcome_notice %}
+<style>
+#didi-notice{box-sizing:border-box;width:min(620px,94vw);max-height:90vh;max-height:90dvh;padding:0;border:1px solid #b9a681;border-radius:22px;background:#10203f;color:#f6f1e7;font-family:inherit;direction:rtl;text-align:right;overflow:auto;overscroll-behavior:contain;box-shadow:0 24px 80px #0008}
+#didi-notice::backdrop{background:#081020b8;backdrop-filter:blur(7px)}
+#didi-notice[open]{animation:didi-notice-in .25s ease-out}
+@keyframes didi-notice-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+#didi-notice .dn-head{text-align:center;padding:20px 20px 8px}
+#didi-notice img{width:155px;max-width:55%;height:auto}
+#didi-notice h2{font-size:1.35rem;color:#e8d7b5;margin:10px 0;line-height:1.7}
+#didi-notice .dn-body{padding:0 24px;font-size:.95rem;line-height:2;text-align:right;direction:rtl}
+#didi-notice .dn-body p{margin:0;padding:12px 0;border-bottom:1px solid #ffffff20}
+#didi-notice .dn-footer{position:sticky;bottom:0;background:#10203f;padding:16px 24px;text-align:center}
+#didi-notice button{font:inherit;font-weight:bold;background:#e8d7b5;color:#10203f;border:0;border-radius:12px;padding:12px 22px;width:100%;cursor:pointer}
+@media(prefers-reduced-motion:reduce){#didi-notice[open]{animation:none}}
+</style>
+<dialog id="didi-notice" dir="rtl" lang="fa" aria-labelledby="didi-notice-title" data-version="{{ welcome_notice.updated_at|date:'U' }}">
+  <div class="dn-head"><img src="/media/branding/Artboard%207.png" alt="دی‌دی"><h2 id="didi-notice-title">{{ welcome_notice.title }}</h2></div>
+  <div class="dn-body">{{ welcome_notice.body|linebreaks }}</div>
+  <div class="dn-footer"><button type="button" autofocus>{{ welcome_notice.button_label }}</button></div>
+</dialog>
+<script>
+(function(){
+ const dialog=document.getElementById('didi-notice');
+ const key='didi-welcome-'+dialog.dataset.version;
+ let seen=0;
+ try{seen=Number(localStorage.getItem(key)||0)}catch(e){}
+ if(Date.now()-seen<86400000)return;
+ if(typeof dialog.showModal!=='function')return;
+ const oldOverflow=document.body.style.overflow;
+ dialog.showModal();
+ document.body.style.overflow='hidden';
+ dialog.addEventListener('cancel',e=>e.preventDefault());
+ dialog.querySelector('button').addEventListener('click',()=>{
+   try{localStorage.setItem(key,String(Date.now()))}catch(e){}
+   dialog.close();
+ });
+ dialog.addEventListener('close',()=>{document.body.style.overflow=oldOverflow});
+})();
+</script>
+{% endif %}
