@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from django.urls import path, reverse
 from django.utils.html import format_html
 
-from .models import AvailabilityMenuItem, Category, MenuItem
+from .models import AvailabilityMenuItem, Category, MenuItem, WelcomeNotice
 
 
 @admin.register(Category)
@@ -161,3 +161,13 @@ class AvailabilityMenuItemAdmin(admin.ModelAdmin):
 admin.site.site_header = "DIDI Menu Admin"
 admin.site.site_title = "DIDI Menu"
 admin.site.index_title = "مدیریت منو"
+
+
+@admin.register(WelcomeNotice)
+class WelcomeNoticeAdmin(admin.ModelAdmin):
+    list_display = ("title", "is_active", "updated_at")
+    fields = ("title", "body", "button_label", "is_active")
+    def has_add_permission(self, request):
+        return not WelcomeNotice.objects.exists() and super().has_add_permission(request)
+    def has_delete_permission(self, request, obj=None):
+        return False
